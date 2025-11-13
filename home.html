@@ -58,15 +58,14 @@
       margin: 0 auto;
     }
 
-    /* Multiple circular images container */
+    /* Auto-scrolling multiple circular images container */
     .image-section {
       display: flex;
-      justify-content: flex-start; /* align left */
-      align-items: center;
       gap: 20px;
-      overflow-x: auto; /* horizontal scrolling on small screens */
+      overflow-x: auto;
       padding: 20px;
       scroll-behavior: smooth;
+      animation: scrollLeft 30s linear infinite;
     }
 
     .image-section::-webkit-scrollbar {
@@ -79,7 +78,7 @@
     }
 
     .circle-image {
-      flex: 0 0 auto; /* prevent shrinking */
+      flex: 0 0 auto;
       width: 180px;
       height: 180px;
       border-radius: 50%;
@@ -98,6 +97,12 @@
     @keyframes glowPulse {
       from { box-shadow: 0 0 15px rgba(0,123,255,0.6), 0 0 30px rgba(0,188,212,0.4); }
       to { box-shadow: 0 0 25px rgba(0,123,255,1), 0 0 50px rgba(0,188,212,0.8); }
+    }
+
+    /* Auto-scroll animation */
+    @keyframes scrollLeft {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
 
     section {
@@ -162,8 +167,8 @@
   </header>
 
   <main>
-    <!-- Multiple Circular Images Section -->
-    <div class="image-section">
+    <!-- Auto-scrolling Circular Images Section -->
+    <div class="image-section" id="circleContainer">
       <div class="circle-image">
         <img src="https://ik.imagekit.io/eabxb3gvp/+234%20701%20269%209982%2020251113_151854.jpg?updatedAt=1763043611440" alt="Church Image 1">
       </div>
@@ -173,7 +178,12 @@
       <div class="circle-image">
         <img src="https://ik.imagekit.io/eabxb3gvp/images%20(4).jpeg?updatedAt=1763042745236" alt="Church Image 3">
       </div>
-      <!-- Add more circles here if needed -->
+      <div class="circle-image">
+        <img src="https://ik.imagekit.io/eabxb3gvp/+234%20701%20269%209982%2020251113_151854.jpg?updatedAt=1763043611440" alt="Church Image 4">
+      </div>
+      <div class="circle-image">
+        <img src="https://ik.imagekit.io/eabxb3gvp/IMG-20240319-WA0088-1.jpg?updatedAt=1763030613645" alt="Church Image 5">
+      </div>
     </div>
 
     <section>
@@ -203,5 +213,22 @@
     <a href="#">Instagram</a> | 
     <a href="#">Twitter</a>
   </footer>
+
+  <script>
+    // Auto-scroll logic for horizontal movement
+    const container = document.getElementById('circleContainer');
+    let scrollAmount = 0;
+
+    function autoScroll() {
+      scrollAmount += 1; // speed
+      if(scrollAmount > container.scrollWidth - container.clientWidth) {
+        scrollAmount = 0; // loop back
+      }
+      container.scrollLeft = scrollAmount;
+      requestAnimationFrame(autoScroll);
+    }
+
+    autoScroll();
+  </script>
 </body>
 </html>
