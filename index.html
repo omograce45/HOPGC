@@ -22,7 +22,8 @@
       text-align: center;
       position: relative;
       overflow: hidden;
-      background: url('https://images.unsplash.com/photo-1749367493978-50a7a84096eb?auto=format&fit=crop&w=1500&q=80') no-repeat center center/cover;
+      /* UPDATED: Your custom background image */
+      background: url('YOUR_BACKGROUND_IMAGE.jpg') no-repeat center center/cover;
       color: white;
     }
 
@@ -37,12 +38,9 @@
       z-index: 2;
     }
 
-    .logo {
-      font-size: 1.8rem;
-      font-weight: 600;
-      color: #00bfff;
-      letter-spacing: 1px;
-      text-shadow: 0 0 15px rgba(0, 191, 255, 0.9);
+    .logo img {
+      height: 50px; /* Adjust the logo size */
+      width: auto;
     }
 
     .menu-icon {
@@ -96,7 +94,10 @@
 </head>
 <body>
   <header>
-    <div class="logo">HOPGC</div>
+    <div class="logo">
+      <!-- UPDATED: Your custom logo -->
+      <img src="YOUR_LOGO_IMAGE.png" alt="HOPGC Logo">
+    </div>
     <div class="menu-icon">
       <div></div>
       <div></div>
