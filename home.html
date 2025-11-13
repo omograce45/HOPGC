@@ -3,95 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HOPGC - Home</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <title>HOPGC - Circular Rotating Images</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                  url('https://ik.imagekit.io/eabxb3gvp/images%20(4).jpeg?updatedAt=1763042745236') no-repeat center center/cover;
       font-family: 'Montserrat', sans-serif;
     }
 
-    body {
-      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-                  url('https://ik.imagekit.io/eabxb3gvp/images%20(4).jpeg?updatedAt=1763042745236') no-repeat center center/cover;
-      color: white;
-      overflow-x: hidden;
-    }
-
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 70px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 30px;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 1000;
-    }
-
-    .logo img {
-      height: 50px;
-      width: auto;
-    }
-
-    .menu-icon {
-      width: 35px;
-      cursor: pointer;
-    }
-
-    .menu-icon div {
-      height: 4px;
-      background: white;
-      margin: 6px 0;
-      border-radius: 5px;
-      transition: 0.3s;
-    }
-
-    main {
-      padding-top: 100px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    /* Auto-scrolling multiple circular images container */
-    .image-section {
-      display: flex;
-      gap: 20px;
-      overflow-x: auto;
-      padding: 20px;
-      scroll-behavior: smooth;
-      animation: scrollLeft 30s linear infinite;
-    }
-
-    .image-section::-webkit-scrollbar {
-      height: 8px;
-    }
-
-    .image-section::-webkit-scrollbar-thumb {
-      background: rgba(0,123,255,0.5);
-      border-radius: 4px;
-    }
-
-    .circle-image {
-      flex: 0 0 auto;
-      width: 180px;
-      height: 180px;
+    .big-circle {
+      position: relative;
+      width: 400px;
+      height: 400px;
       border-radius: 50%;
-      overflow: hidden;
       border: 4px solid rgba(255,255,255,0.4);
       box-shadow: 0 0 20px rgba(0,123,255,0.8), 0 0 40px rgba(0,188,212,0.5);
       animation: glowPulse 3s infinite alternate;
-    }
-
-    .circle-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      overflow: visible;
     }
 
     @keyframes glowPulse {
@@ -99,136 +31,71 @@
       to { box-shadow: 0 0 25px rgba(0,123,255,1), 0 0 50px rgba(0,188,212,0.8); }
     }
 
-    /* Auto-scroll animation */
-    @keyframes scrollLeft {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+    /* Container for rotating images */
+    .rotating-images {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      animation: rotate 15s linear infinite;
+      transform-origin: center center;
     }
 
-    section {
-      padding: 80px 20px;
-      text-align: center;
-      background: rgba(0,0,0,0.4);
-      margin-bottom: 30px;
-      border-radius: 10px;
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
     }
 
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-      text-shadow: 0 0 8px rgba(0,123,255,0.7);
+    /* Each small image positioned on circle */
+    .small-circle {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid white;
+      box-shadow: 0 0 10px rgba(0,123,255,0.5);
+      top: 50%;
+      left: 50%;
+      transform-origin: -150px 0; /* distance from center */
     }
 
-    p {
-      font-size: 1.1rem;
-      color: #d0d0d0;
+    .small-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
-    footer {
-      background: rgba(0,0,0,0.6);
-      color: #d0d0d0;
-      text-align: center;
-      padding: 20px 10px;
-      font-size: 0.9rem;
-      position: relative;
-      margin-top: 50px;
-    }
-
-    footer a {
-      color: #00bfff;
-      text-decoration: none;
-      margin: 0 10px;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
-
-    /* Responsive adjustments */
-    @media (max-width: 900px) {
-      .circle-image { width: 150px; height: 150px; }
-    }
+    /* Spread small circles evenly using rotation */
+    .small-circle:nth-child(1) { transform: rotate(0deg) translateX(150px); }
+    .small-circle:nth-child(2) { transform: rotate(60deg) translateX(150px); }
+    .small-circle:nth-child(3) { transform: rotate(120deg) translateX(150px); }
+    .small-circle:nth-child(4) { transform: rotate(180deg) translateX(150px); }
+    .small-circle:nth-child(5) { transform: rotate(240deg) translateX(150px); }
+    .small-circle:nth-child(6) { transform: rotate(300deg) translateX(150px); }
 
     @media (max-width: 600px) {
-      .circle-image { width: 130px; height: 130px; }
+      .big-circle { width: 300px; height: 300px; }
+      .small-circle { width: 60px; height: 60px; }
+      .small-circle { transform-origin: -110px 0; }
+      .small-circle:nth-child(1) { transform: rotate(0deg) translateX(110px); }
+      .small-circle:nth-child(2) { transform: rotate(60deg) translateX(110px); }
+      .small-circle:nth-child(3) { transform: rotate(120deg) translateX(110px); }
+      .small-circle:nth-child(4) { transform: rotate(180deg) translateX(110px); }
+      .small-circle:nth-child(5) { transform: rotate(240deg) translateX(110px); }
+      .small-circle:nth-child(6) { transform: rotate(300deg) translateX(110px); }
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="logo">
-      <img src="https://ik.imagekit.io/eabxb3gvp/Church%20Logo%20transparent.png?updatedAt=1763034506236" alt="HOPGC Logo">
+  <div class="big-circle">
+    <div class="rotating-images">
+      <div class="small-circle"><img src="https://ik.imagekit.io/eabxb3gvp/+234%20701%20269%209982%2020251113_151854.jpg" alt=""></div>
+      <div class="small-circle"><img src="https://ik.imagekit.io/eabxb3gvp/IMG-20240319-WA0088-1.jpg" alt=""></div>
+      <div class="small-circle"><img src="https://ik.imagekit.io/eabxb3gvp/images%20(4).jpeg" alt=""></div>
+      <div class="small-circle"><img src="https://ik.imagekit.io/eabxb3gvp/+234%20701%20269%209982%2020251113_151854.jpg" alt=""></div>
+      <div class="small-circle"><img src="https://ik.imagekit.io/eabxb3gvp/IMG-20240319-WA0088-1.jpg" alt=""></div>
+      <div class="small-circle"><img src="https://ik.imagekit.io/eabxb3gvp/images%20(4).jpeg" alt=""></div>
     </div>
-    <div class="menu-icon">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </header>
-
-  <main>
-    <!-- Auto-scrolling Circular Images Section -->
-    <div class="image-section" id="circleContainer">
-      <div class="circle-image">
-        <img src="https://ik.imagekit.io/eabxb3gvp/+234%20701%20269%209982%2020251113_151854.jpg?updatedAt=1763043611440" alt="Church Image 1">
-      </div>
-      <div class="circle-image">
-        <img src="https://ik.imagekit.io/eabxb3gvp/IMG-20240319-WA0088-1.jpg?updatedAt=1763030613645" alt="Church Image 2">
-      </div>
-      <div class="circle-image">
-        <img src="https://ik.imagekit.io/eabxb3gvp/images%20(4).jpeg?updatedAt=1763042745236" alt="Church Image 3">
-      </div>
-      <div class="circle-image">
-        <img src="https://ik.imagekit.io/eabxb3gvp/+234%20701%20269%209982%2020251113_151854.jpg?updatedAt=1763043611440" alt="Church Image 4">
-      </div>
-      <div class="circle-image">
-        <img src="https://ik.imagekit.io/eabxb3gvp/IMG-20240319-WA0088-1.jpg?updatedAt=1763030613645" alt="Church Image 5">
-      </div>
-    </div>
-
-    <section>
-      <h1>Our Programs</h1>
-      <p>Join our worship sessions, teaching programs, and community events.</p>
-    </section>
-
-    <section>
-      <h1>Latest News</h1>
-      <p>Stay updated with the latest happenings at HOPGC.</p>
-    </section>
-
-    <section>
-      <h1>Bookshop</h1>
-      <p>Explore our collection of spiritual books, devotionals, and study materials available at the HOPGC Bookshop.</p>
-    </section>
-
-    <section>
-      <h1>Support</h1>
-      <p>Partner with us through prayers, volunteering, and giving to advance the work of the ministry at HOPGC.</p>
-    </section>
-  </main>
-
-  <footer>
-    &copy; 2025 House of Perfection Gospel Centre | 
-    <a href="#">Facebook</a> | 
-    <a href="#">Instagram</a> | 
-    <a href="#">Twitter</a>
-  </footer>
-
-  <script>
-    // Auto-scroll logic for horizontal movement
-    const container = document.getElementById('circleContainer');
-    let scrollAmount = 0;
-
-    function autoScroll() {
-      scrollAmount += 1; // speed
-      if(scrollAmount > container.scrollWidth - container.clientWidth) {
-        scrollAmount = 0; // loop back
-      }
-      container.scrollLeft = scrollAmount;
-      requestAnimationFrame(autoScroll);
-    }
-
-    autoScroll();
-  </script>
+  </div>
 </body>
 </html>
