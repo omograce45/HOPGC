@@ -17,6 +17,19 @@
   overflow-x: hidden;  
 }  
 
+.center-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 180px;       /* adjust size */
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  border: 4px solid white;
+  box-shadow: 0 0 15px rgba(0,123,255,0.7);
+}       
+
 header {  
   position: fixed;  
   top: 0;  
@@ -189,7 +202,8 @@ footer a:hover {
     </div>  
   </header>    <main>  
     <!-- Big rotating circle with multiple images -->  
-    <div class="big-circle">  
+    <div class="big-circle">
+     <img class="center-image" src="https://ik.imagekit.io/eabxb3gvp/IMG-20240319-WA0088-1.jpg" alt="">
       <div class="rotating-images">  
         <div class="small-circle"><img src="https://ik.imagekit.io/eabxb3gvp/+234%20701%20269%209982%2020251113_151854.jpg" alt=""></div>  
         <div class="small-circle"><img src="https://ik.imagekit.io/eabxb3gvp/IMG-20240319-WA0088-1.jpg" alt=""></div>  
