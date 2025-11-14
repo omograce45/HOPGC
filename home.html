@@ -33,6 +33,58 @@
       box-shadow: 0 0 15px rgba(0,123,255,0.7);
     }
 
+    .vision-section {
+  padding: 60px 20px;
+  background: rgba(0,0,0,0.4);
+  border-radius: 12px;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.vision-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.vision-image img {
+  width: 300px;
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0,123,255,0.6);
+}
+
+.vision-text {
+  max-width: 500px;
+  text-align: left;
+  color: #dcdcdc;
+}
+
+.vision-text h2 {
+  font-size: 2rem;
+  color: #00bfff;
+  margin-bottom: 15px;
+  text-shadow: 0 0 8px rgba(0,123,255,0.6);
+}
+
+.vision-text p {
+  font-size: 1.05rem;
+  line-height: 1.6rem;
+}
+
+@media (max-width: 800px) {
+  .vision-container {
+    flex-direction: column;
+  }
+  .vision-text {
+    text-align: center;
+  }
+  }
+
     header {
       position: fixed;
       top: 0;
@@ -309,6 +361,20 @@
         <p>Partner with us through prayers, volunteering, and giving.</p>
       </section>
     </a>
+    <!-- Add this directly under the existing support cards grid -->
+<section class="vision-section">
+  <div class="vision-container">
+    <div class="vision-image">
+      <img src="https://ik.imagekit.io/eabxb3gvp/pastor-pointing.jpg" alt="Pastor pointing to the world">
+    </div>
+    <div class="vision-text">
+      <h2>Our Vision</h2>
+      <p> <!-- Write your ministry vision here -->
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Our vision is to raise leaders, impact communities, and see the kingdom of God established across nations.
+      </p>
+    </div>
+  </div>
+</section>
   </main>
 
   <footer>
