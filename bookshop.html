@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>HOPGC - Bookshop</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* {margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif;}
+body {
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+              url('https://ik.imagekit.io/eabxb3gvp/images%20(4).jpeg') no-repeat center center/cover;
+  color:white;overflow-x:hidden;
+}
+header {position:fixed;top:0;left:0;right:0;height:70px;display:flex;justify-content:space-between;align-items:center;padding:0 30px;background:rgba(0,0,0,0.5);z-index:1000;}
+.logo img {height:50px;}
+main {padding-top:120px;max-width:1100px;margin:auto;text-align:center;}
+h1 {font-size:2.2rem;text-shadow:0 0 10px rgba(0,123,255,0.8);margin-bottom:15px;}
+p.subtitle {font-size:1.1rem;color:#e0e0e0;margin-bottom:40px;}
+.shop-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;}
+.shop-card {
+  background:rgba(0,0,0,0.6);
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 0 15px rgba(0,123,255,0.4);
+  transition:0.3s ease-in-out;
+}
+.shop-card:hover {transform:translateY(-6px);box-shadow:0 0 25px rgba(0,123,255,0.7);}
+.shop-image {width:100%;height:180px;object-fit:cover;}
+.shop-content {padding:20px;text-align:left;}
+.shop-content h3 {font-size:1.3rem;color:#00bfff;margin-bottom:10px;}
+.shop-content p {font-size:0.95rem;color:#dcdcdc;line-height:1.4rem;margin-bottom:10px;}
+.price {font-size:1.1rem;color:#00eaff;font-weight:700;}
+footer {background:rgba(0,0,0,0.6);color:#d0d0d0;text-align:center;padding:20px 10px;font-size:0.9rem;margin-top:60px;}
+footer a {color:#00bfff;margin:0 10px;text-decoration:none;}
+footer a:hover {text-decoration:underline;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="https://ik.imagekit.io/eabxb3gvp/Church%20Logo%20transparent.png" alt="HOPGC Logo">
+  </div>
+</header>
+
+<main>
+  <h1>Church Bookshop</h1>
+  <p class="subtitle">Explore books, devotionals, study materials, and more.</p>
+
+  <div class="shop-grid">
+
+    <div class="shop-card">
+      <img class="shop-image" src="https://ik.imagekit.io/eabxb3gvp/IMG-20240319-WA0088-1.jpg" alt="Book Image">
+      <div class="shop-content">
+        <h3>Daily Devotional</h3>
+        <p>An inspiring daily guide to strengthen your spiritual growth.</p>
+        <p class="price">₦3,500</p>
+      </div>
+    </div>
+
+    <div class="shop-card">
+      <img class="shop-image" src="https://ik.imagekit.io/eabxb3gvp/images%20(4).jpeg" alt="Study Bible">
+      <div class="shop-content">
+        <h3>Study Bible</h3>
+        <p>Deep study Bible with commentary and teaching notes.</p>
+        <p class="price">₦15,000</p>
+      </div>
+    </div>
+
+    <div class="shop-card">
+      <img class="shop-image" src="https://ik.imagekit.io/eabxb3gvp/+234%20701%20269%209982%2020251113_151854.jpg" alt="Inspirational Book">
+      <div class="shop-content">
+        <h3>Worship Collection</h3>
+        <p>A powerful book filled with worship teachings and spiritual insights.</p>
+        <p class="price">₦5,000</p>
+      </div>
+    </div>
+
+    <div class="shop-card">
+      <img class="shop-image" src="https://ik.imagekit.io/eabxb3gvp/IMG-20240319-WA0088-1.jpg" alt="Sermon CDs">
+      <div class="shop-content">
+        <h3>Sermon CD Pack</h3>
+        <p>Life-changing messages from church programs and teachings.</p>
+        <p class="price">₦2,000</p>
+      </div>
+    </div>
+
+  </div>
+
+</main>
+
+<footer>
+  &copy; 2025 House of Perfection Gospel Centre |
+  <a href="#">Facebook</a> |
+  <a href="#">Instagram</a> |
+  <a href="#">Twitter</a>
+</footer>
+
+</body>
+</html>

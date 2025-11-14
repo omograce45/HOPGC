@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>HOPGC - Programs</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* {margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif;}
+body {
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+              url('https://ik.imagekit.io/eabxb3gvp/images%20(4).jpeg') no-repeat center center/cover;
+  color:white;overflow-x:hidden;
+}
+header {position:fixed;top:0;left:0;right:0;height:70px;display:flex;justify-content:space-between;align-items:center;padding:0 30px;background:rgba(0,0,0,0.5);z-index:1000;}
+.logo img {height:50px;}
+main {padding-top:120px;max-width:1100px;margin:auto;text-align:center;}
+h1 {font-size:2.2rem;text-shadow:0 0 10px rgba(0,123,255,0.8);margin-bottom:15px;}
+p.subtitle {font-size:1.1rem;color:#e0e0e0;margin-bottom:40px;}
+.program-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;}
+.program-card {
+  background:rgba(0,0,0,0.6);
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 0 15px rgba(0,123,255,0.4);
+  transition:0.3s ease-in-out;
+}
+.program-card:hover {transform:translateY(-6px);box-shadow:0 0 25px rgba(0,123,255,0.7);}
+.program-image {width:100%;height:160px;object-fit:cover;}
+.program-content {padding:20px;text-align:left;}
+.program-content h3 {font-size:1.3rem;color:#00bfff;margin-bottom:10px;}
+.program-content p {font-size:0.95rem;color:#dcdcdc;line-height:1.4rem;}
+footer {background:rgba(0,0,0,0.6);color:#d0d0d0;text-align:center;padding:20px 10px;font-size:0.9rem;margin-top:60px;}
+footer a {color:#00bfff;margin:0 10px;text-decoration:none;}
+footer a:hover {text-decoration:underline;}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">
+    <img src="https://ik.imagekit.io/eabxb3gvp/Church%20Logo%20transparent.png" alt="HOPGC Logo">
+  </div>
+</header>
+
+<main>
+  <h1>Church Programs</h1>
+  <p class="subtitle">Explore our weekly services, special events, and spiritual activities.</p>
+
+  <div class="program-grid">
+
+    <div class="program-card">
+      <img class="program-image" src="https://ik.imagekit.io/eabxb3gvp/IMG-20240319-WA0088-1.jpg" alt="Sunday Service">
+      <div class="program-content">
+        <h3>Sunday Celebration Service</h3>
+        <p>Every Sunday • 8:00 AM<br>Join us for worship, the Word, and a powerful encounter in God’s presence.</p>
+      </div>
+    </div>
+
+    <div class="program-card">
+      <img class="program-image" src="https://ik.imagekit.io/eabxb3gvp/images%20(4).jpeg" alt="Bible Study">
+      <div class="program-content">
+        <h3>Wednesday Bible Study</h3>
+        <p>Every Wednesday • 5:00 PM<br>Dive deep into scripture and grow in spiritual understanding.</p>
+      </div>
+    </div>
+
+    <div class="program-card">
+      <img class="program-image" src="https://ik.imagekit.io/eabxb3gvp/+234%20701%20269%209982%2020251113_151854.jpg" alt="Prayer Meeting">
+      <div class="program-content">
+        <h3>Friday Prayer Meeting</h3>
+        <p>Every Friday • 6:00 PM<br>A time of intense prayer, intercession, and spiritual empowerment.</p>
+      </div>
+    </div>
+
+    <div class="program-card">
+      <img class="program-image" src="https://ik.imagekit.io/eabxb3gvp/IMG-20240319-WA0088-1.jpg" alt="Youth Fellowship">
+      <div class="program-content">
+        <h3>Youth Fellowship</h3>
+        <p>Saturdays • 3:00 PM<br>Vibrant youth gathering focused on mentoring, worship, and kingdom purpose.</p>
+      </div>
+    </div>
+
+  </div>
+
+</main>
+
+<footer>
+  &copy; 2025 House of Perfection Gospel Centre |
+  <a href="#">Facebook</a> |
+  <a href="#">Instagram</a> |
+  <a href="#">Twitter</a>
+</footer>
+
+</body>
+</html>

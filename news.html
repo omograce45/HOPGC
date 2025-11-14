@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>HOPGC - News</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* {margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif;}
+body {
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+              url('https://ik.imagekit.io/eabxb3gvp/images%20(4).jpeg?updatedAt=1763042745236') no-repeat center center/cover;
+  color:white;overflow-x:hidden;
+}
+header {position:fixed;top:0;left:0;right:0;height:70px;display:flex;justify-content:space-between;align-items:center;padding:0 30px;background:rgba(0,0,0,0.5);z-index:1000;}
+.logo img {height:50px;}
+main {padding-top:120px;max-width:1100px;margin:auto;text-align:center;}
+h1 {font-size:2.2rem;text-shadow:0 0 10px rgba(0,123,255,0.8);margin-bottom:15px;}
+p.subtitle {font-size:1.1rem;color:#e0e0e0;margin-bottom:40px;}
+.news-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;}
+.news-card {
+  background:rgba(0,0,0,0.6);
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 0 15px rgba(0,123,255,0.4);
+  transition:0.3s ease-in-out;
+}
+.news-card:hover {transform:translateY(-6px);box-shadow:0 0 25px rgba(0,123,255,0.7);}
+.news-image {width:100%;height:160px;object-fit:cover;}
+.news-content {padding:18px;text-align:left;}
+.news-content h3 {font-size:1.3rem;color:#00bfff;margin-bottom:10px;}
+.news-content p {font-size:0.95rem;color:#dcdcdc;line-height:1.4rem;}
+footer {background:rgba(0,0,0,0.6);color:#d0d0d0;text-align:center;padding:20px 10px;font-size:0.9rem;margin-top:60px;}
+footer a {color:#00bfff;margin:0 10px;text-decoration:none;}
+footer a:hover {text-decoration:underline;}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">
+    <img src="https://ik.imagekit.io/eabxb3gvp/Church%20Logo%20transparent.png?updatedAt=1763034506236" alt="HOPGC Logo">
+  </div>
+</header>
+<main>
+  <h1>Latest News</h1>
+  <p class="subtitle">Stay updated with fresh updates, announcements & upcoming events.</p>
+  <div class="news-grid">
+    <div class="news-card">
+      <img class="news-image" src="https://ik.imagekit.io/eabxb3gvp/images%20(4).jpeg" alt="News Image">
+      <div class="news-content">
+        <h3>Upcoming Special Service</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Join us this Sunday for a powerful encounter.</p>
+      </div>
+    </div>
+    <div class="news-card">
+      <img class="news-image" src="https://ik.imagekit.io/eabxb3gvp/IMG-20240319-WA0088-1.jpg" alt="News Image">
+      <div class="news-content">
+        <h3>Community Outreach</h3>
+        <p>We are taking the Gospel to the streets with free evangelism programs and support to families.</p>
+      </div>
+    </div>
+    <div class="news-card">
+      <img class="news-image" src="https://ik.imagekit.io/eabxb3gvp/+234%20701%20269%209982%2020251113_151854.jpg" alt="News Image">
+      <div class="news-content">
+        <h3>Worship Experience</h3>
+        <p>A night of worship, praise, and thanksgiving. Come and be blessed in God's presence.</p>
+      </div>
+    </div>
+  </div>
+</main>
+<footer>
+  &copy; 2025 House of Perfection Gospel Centre |
+  <a href="#">Facebook</a> |
+  <a href="#">Instagram</a> |
+  <a href="#">Twitter</a>
+</footer>
+</body>
+</html>
