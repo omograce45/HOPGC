@@ -1,228 +1,204 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HOPGC - Home Page</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+<!DOCTYPE html>  <html lang="en">  
+<head>  
+  <meta charset="UTF-8" />  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />  
+  <title>HOPGC - Home</title>  
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">  
+  <style>  
+    * {  
+      margin: 0;  
+      padding: 0;  
+      box-sizing: border-box;  
+      font-family: 'Montserrat', sans-serif;  
+    }  body {  
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),  
+              url('https://ik.imagekit.io/eabxb3gvp/images%20(4).jpeg?updatedAt=1763042745236') no-repeat center center/cover;  
+  color: white;  
+  overflow-x: hidden;  
+}  
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Montserrat', sans-serif;
-    }
+header {  
+  position: fixed;  
+  top: 0;  
+  left: 0;  
+  right: 0;  
+  height: 70px;  
+  display: flex;  
+  justify-content: space-between;  
+  align-items: center;  
+  padding: 0 30px;  
+  background: rgba(0, 0, 0, 0.5);  
+  z-index: 1000;  
+}  
 
-    body {
-      background: url("YOUR_BACKGROUND_IMAGE.jpg") no-repeat center center/cover;
-      background-attachment: fixed;
-      min-height: 100vh;
-      color: white;
-      overflow-x: hidden;
-    }
+.logo img {  
+  height: 50px;  
+  width: auto;  
+}  
 
-    /* HEADER */
-    header {
-      width: 100%;
-      padding: 20px 30px;
-      position: fixed;
-      top: 0;
-      left: 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 1000;
-      background: rgba(0, 0, 0, 0.4);
-      backdrop-filter: blur(5px);
-    }
+.menu-icon {  
+  width: 35px;  
+  cursor: pointer;  
+}  
 
-    .logo {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: #00bfff;
-      text-shadow: 0 0 10px rgba(0, 191, 255, 0.8);
-    }
+.menu-icon div {  
+  height: 4px;  
+  background: white;  
+  margin: 6px 0;  
+  border-radius: 5px;  
+  transition: 0.3s;  
+}  
 
-    .menu-icon {
-      width: 35px;
-      cursor: pointer;
-    }
+main {  
+  padding-top: 100px;  
+  max-width: 1200px;  
+  margin: 0 auto;  
+  text-align: center;  
+}  
 
-    .menu-icon div {
-      height: 4px;
-      background: white;
-      margin: 6px 0;
-      border-radius: 5px;
-      transition: 0.3s;
-    }
+/* Big rotating circle container */  
+.big-circle {  
+  position: relative;  
+  width: 400px;  
+  height: 400px;  
+  margin: 0 auto 50px auto;  
+  border-radius: 50%;  
+  border: 4px solid rgba(255,255,255,0.4);  
+  box-shadow: 0 0 20px rgba(0,123,255,0.8), 0 0 40px rgba(0,188,212,0.5);  
+  animation: glowPulse 3s infinite alternate;  
+  overflow: visible;  
+}  
 
-    /* MAIN SECTION */
-    .main {
-      padding-top: 120px;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-    }
+@keyframes glowPulse {  
+  from { box-shadow: 0 0 15px rgba(0,123,255,0.6), 0 0 30px rgba(0,188,212,0.4); }  
+  to { box-shadow: 0 0 25px rgba(0,123,255,1), 0 0 50px rgba(0,188,212,0.8); }  
+}  
 
-    .big-circle {
-      width: 350px;
-      height: 350px;
-      margin: 30px auto;
-      border: 5px solid rgba(255, 255, 255, 0.4);
-      border-radius: 50%;
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      animation: glow 3s infinite alternate ease-in-out;
-    }
+.rotating-images {  
+  position: absolute;  
+  width: 100%;  
+  height: 100%;  
+  animation: rotate 15s linear infinite;  
+  transform-origin: center center;  
+}  
 
-    @keyframes glow {
-      0% { box-shadow: 0 0 10px rgba(0, 174, 255, 0.3); }
-      100% { box-shadow: 0 0 25px rgba(0, 174, 255, 0.9); }
-    }
+@keyframes rotate {  
+  from { transform: rotate(0deg); }  
+  to { transform: rotate(360deg); }  
+}  
 
-    .center-image {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      transform: translate(-50%, -50%);
-      object-fit: cover;
-      border: 4px solid white;
-      box-shadow: 0 0 15px rgba(0, 123, 255, 0.7);
-      z-index: 10;
-    }
+.small-circle {  
+  position: absolute;  
+  width: 80px;  
+  height: 80px;  
+  border-radius: 50%;  
+  overflow: hidden;  
+  border: 2px solid white;  
+  box-shadow: 0 0 10px rgba(0,123,255,0.5);  
+  top: 50%;  
+  left: 50%;  
+  transform-origin: -150px 0;  
+}  
 
-    /* ROTATING IMAGES */
-    .rotating-images {
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      animation: rotate 25s linear infinite;
-    }
+.small-circle img {  
+  width: 100%;  
+  height: 100%;  
+  object-fit: cover;  
+}  
 
-    @keyframes rotate {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
+/* Distribute small images evenly in a circle */  
+.small-circle:nth-child(1) { transform: rotate(0deg) translateX(150px); }  
+.small-circle:nth-child(2) { transform: rotate(60deg) translateX(150px); }  
+.small-circle:nth-child(3) { transform: rotate(120deg) translateX(150px); }  
+.small-circle:nth-child(4) { transform: rotate(180deg) translateX(150px); }  
+.small-circle:nth-child(5) { transform: rotate(240deg) translateX(150px); }  
+.small-circle:nth-child(6) { transform: rotate(300deg) translateX(150px); }  
 
-    .small-circle {
-      width: 70px;
-      height: 70px;
-      position: absolute;
-      border-radius: 50%;
-      overflow: hidden;
-    }
+section {  
+  padding: 80px 20px;  
+  text-align: center;  
+  background: rgba(0,0,0,0.4);  
+  margin-bottom: 30px;  
+  border-radius: 10px;  
+}  
 
-    .small-circle img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+h1 {  
+  font-size: 2rem;  
+  margin-bottom: 20px;  
+  text-shadow: 0 0 8px rgba(0,123,255,0.7);  
+}  
 
-    .small-circle:nth-child(1) { top: -15px; left: 50%; transform: translateX(-50%); }
-    .small-circle:nth-child(2) { top: 50%; right: -15px; transform: translateY(-50%); }
-    .small-circle:nth-child(3) { bottom: -15px; left: 50%; transform: translateX(-50%); }
-    .small-circle:nth-child(4) { top: 50%; left: -15px; transform: translateY(-50%); }
+p {  
+  font-size: 1.1rem;  
+  color: #d0d0d0;  
+}  
 
-    .small-circle:nth-child(5) { top: 20px; right: 20px; }
-    .small-circle:nth-child(6) { bottom: 20px; left: 20px; }
+footer {  
+  background: rgba(0,0,0,0.6);  
+  color: #d0d0d0;  
+  text-align: center;  
+  padding: 20px 10px;  
+  font-size: 0.9rem;  
+  position: relative;  
+  margin-top: 50px;  
+}  
 
-    /* CONTENT SECTIONS */
-    section {
-      width: 90%;
-      max-width: 850px;
-      margin: 30px auto;
-      padding: 20px;
-      background: rgba(0,0,0,0.45);
-      border-radius: 15px;
-      backdrop-filter: blur(4px);
-      box-shadow: 0 0 15px rgba(0,0,0,0.6);
-    }
+footer a {  
+  color: #00bfff;  
+  text-decoration: none;  
+  margin: 0 10px;  
+}  
 
-    section h2 {
-      margin-bottom: 10px;
-      color: #00bfff;
-      text-shadow: 0 0 10px rgba(0,191,255,0.7);
-    }
+footer a:hover {  
+  text-decoration: underline;  
+}  
 
-    section p {
-      line-height: 1.7;
-      color: #e6e6e6;
-    }
+@media (max-width: 900px) {  
+  .small-circle { width: 60px; height: 60px; transform-origin: -110px 0; }  
+  .small-circle:nth-child(1) { transform: rotate(0deg) translateX(110px); }  
+  .small-circle:nth-child(2) { transform: rotate(60deg) translateX(110px); }  
+  .small-circle:nth-child(3) { transform: rotate(120deg) translateX(110px); }  
+  .small-circle:nth-child(4) { transform: rotate(180deg) translateX(110px); }  
+  .small-circle:nth-child(5) { transform: rotate(240deg) translateX(110px); }  
+  .small-circle:nth-child(6) { transform: rotate(300deg) translateX(110px); }  
+  .big-circle { width: 300px; height: 300px; }  
+}  
 
-    /* FOOTER */
-    footer {
-      margin-top: 50px;
-      width: 100%;
-      padding: 20px;
-      text-align: center;
-      background: rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(5px);
-      color: #ffffff;
-      font-size: 0.9rem;
-    }
-  </style>
-</head>
+@media (max-width: 600px) {  
+  .small-circle { width: 50px; height: 50px; transform-origin: -90px 0; }  
+  .small-circle:nth-child(1) { transform: rotate(0deg) translateX(90px); }  
+  .small-circle:nth-child(2) { transform: rotate(60deg) translateX(90px); }  
+  .small-circle:nth-child(3) { transform: rotate(120deg) translateX(90px); }  
+  .small-circle:nth-child(4) { transform: rotate(180deg) translateX(90px); }  
+  .small-circle:nth-child(5) { transform: rotate(240deg) translateX(90px); }  
+  .small-circle:nth-child(6) { transform: rotate(300deg) translateX(90px); }  
+  .big-circle { width: 250px; height: 250px; }  
+}
 
-<body>
-
-  <!-- HEADER -->
-  <header>
-    <div class="logo">HOPGC</div>
-    <div class="menu-icon">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </header>
-
-  <!-- MAIN SECTION -->
-  <div class="main">
-
-    <div class="big-circle">
-
-      <!-- CENTER IMAGE -->
-      <img class="center-image" src="YOUR_CENTER_IMAGE.jpg" alt="Center Image">
-
-      <!-- ROTATING IMAGES -->
-      <div class="rotating-images">
-
-        <div class="small-circle">
-          <img src="https://ik.imagekit.io/eabxb3gvp/+234%20701%20269%209982%2020251113_151854.jpg" alt="">
-        </div>
-
-        <div class="small-circle">
-          <img src="https://ik.imagekit.io/eabxb3gvp/IMG-20240319-WA0088-1.jpg" alt="">
-        </div>
-
-        <div class="small-circle">
-          <img src="https://ik.imagekit.io/eabxb3gvp/images%20(4).jpeg" alt="">
-        </div>
-
-        <div class="small-circle">
-          <img src="https://ik.imagekit.io/eabxb3gvp/+234%20701%20269%209982%2020251113_151854.jpg" alt="">
-        </div>
-
-        <div class="small-circle">
-          <img src="https://ik.imagekit.io/eabxb3gvp/IMG-20240319-WA0088-1.jpg" alt="">
-        </div>
-
-        <div class="small-circle">
-          <img src="https://ik.imagekit.io/eabxb3gvp/images%20(4).jpeg" alt="">
-        </div>
-
-      </div>
-    </div>
-
-    <!-- CONTENT SECTIONS -->
- <section>  
+  </style>  
+</head>  
+<body>  
+  <header>  
+    <div class="logo">  
+      <img src="https://ik.imagekit.io/eabxb3gvp/Church%20Logo%20transparent.png?updatedAt=1763034506236" alt="HOPGC Logo">  
+    </div>  
+    <div class="menu-icon">  
+      <div></div>  
+      <div></div>  
+      <div></div>  
+    </div>  
+  </header>    <main>  
+    <!-- Big rotating circle with multiple images -->  
+    <div class="big-circle">  
+      <div class="rotating-images">  
+        <div class="small-circle"><img src="https://ik.imagekit.io/eabxb3gvp/+234%20701%20269%209982%2020251113_151854.jpg" alt=""></div>  
+        <div class="small-circle"><img src="https://ik.imagekit.io/eabxb3gvp/IMG-20240319-WA0088-1.jpg" alt=""></div>  
+        <div class="small-circle"><img src="https://ik.imagekit.io/eabxb3gvp/images%20(4).jpeg" alt=""></div>  
+        <div class="small-circle"><img src="https://ik.imagekit.io/eabxb3gvp/+234%20701%20269%209982%2020251113_151854.jpg" alt=""></div>  
+        <div class="small-circle"><img src="https://ik.imagekit.io/eabxb3gvp/IMG-20240319-WA0088-1.jpg" alt=""></div>  
+        <div class="small-circle"><img src="https://ik.imagekit.io/eabxb3gvp/images%20(4).jpeg" alt=""></div>  
+      </div>  
+    </div>  <section>  
   <h1>Our Programs</h1>  
   <p>Join our worship sessions, teaching programs, and community events.</p>  
 </section>  
@@ -249,4 +225,5 @@
     <a href="#">Twitter</a>  
   </footer>  
 </body>  
-</html>
+</html> 
+
