@@ -1,237 +1,288 @@
-<!DOCTYPE html>  <html lang="en">  
-<head>  
-  <meta charset="UTF-8" />  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />  
-  <title>HOPGC - Home</title>  
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">  
-  <style>  
-    * {  
-      margin: 0;  
-      padding: 0;  
-      box-sizing: border-box;  
-      font-family: 'Montserrat', sans-serif;  
-    }  body {  
-  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),  
-              url('https://ik.imagekit.io/eabxb3gvp/images%20(4).jpeg?updatedAt=1763042745236') no-repeat center center/cover;  
-  color: white;  
-  overflow-x: hidden;  
-}  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HOPGC - Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
 
-.center-image {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 180px;       /* adjust size */
-  height: 180px;
-  border-radius: 50%;
-  object-fit: cover;
-  transform: translate(-50%, -50%);
-  border: 4px solid white;
-  box-shadow: 0 0 15px rgba(0,123,255,0.7);
-}       
+    body {
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                  url('https://ik.imagekit.io/eabxb3gvp/images%20(4).jpeg?updatedAt=1763042745236') no-repeat center center/cover;
+      color: white;
+      overflow-x: hidden;
+    }
 
-header {  
-  position: fixed;  
-  top: 0;  
-  left: 0;  
-  right: 0;  
-  height: 70px;  
-  display: flex;  
-  justify-content: space-between;  
-  align-items: center;  
-  padding: 0 30px;  
-  background: rgba(0, 0, 0, 0.5);  
-  z-index: 1000;  
-}  
+    .center-image {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      transform: translate(-50%, -50%);
+      border: 4px solid white;
+      box-shadow: 0 0 15px rgba(0,123,255,0.7);
+    }
 
-a {
-  color: inherit !important;
-  text-decoration: none !important;
-}
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 70px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 30px;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+    }
 
-a:visited,
-a:active,
-a:hover,
-a:focus {
-  color: inherit !important;
-  text-decoration: none !important;
-}
+    a {
+      color: inherit !important;
+      text-decoration: none !important;
+    }
 
-a section {
-  color: white !important;
-}    
+    a:visited,
+    a:active,
+    a:hover,
+    a:focus {
+      color: inherit !important;
+      text-decoration: none !important;
+    }
 
-.logo img {  
-  height: 50px;  
-  width: auto;  
-}  
+    a section {
+      color: white !important;
+    }
 
-.menu-icon {  
-  width: 35px;  
-  cursor: pointer;  
-}  
+    .logo img {
+      height: 50px;
+      width: auto;
+    }
 
-.menu-icon div {  
-  height: 4px;  
-  background: white;  
-  margin: 6px 0;  
-  border-radius: 5px;  
-  transition: 0.3s;  
-}  
+    .menu-icon {
+      width: 35px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
 
-main {  
-  padding-top: 100px;  
-  max-width: 1200px;  
-  margin: 0 auto;  
-  text-align: center;  
-}  
+    .menu-icon div {
+      height: 4px;
+      background: white;
+      margin: 6px 0;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
 
-/* Big rotating circle container */  
-.big-circle {  
-  position: relative;  
-  width: 400px;  
-  height: 400px;  
-  margin: 0 auto 50px auto;  
-  border-radius: 50%;  
-  border: 4px solid rgba(255,255,255,0.4);  
-  box-shadow: 0 0 20px rgba(0,123,255,0.8), 0 0 40px rgba(0,188,212,0.5);  
-  animation: glowPulse 3s infinite alternate;  
-  overflow: visible;  
-}  
+    /* Dropdown Menu */
+    nav {
+      position: absolute;
+      top: 70px;
+      right: 30px;
+      background: rgba(0,0,0,0.8);
+      border-radius: 10px;
+      overflow: hidden;
+      display: none;
+      flex-direction: column;
+      min-width: 150px;
+      z-index: 999;
+    }
 
-@keyframes glowPulse {  
-  from { box-shadow: 0 0 15px rgba(0,123,255,0.6), 0 0 30px rgba(0,188,212,0.4); }  
-  to { box-shadow: 0 0 25px rgba(0,123,255,1), 0 0 50px rgba(0,188,212,0.8); }  
-}  
+    nav a {
+      padding: 12px 20px;
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      transition: 0.3s;
+    }
 
-.rotating-images {  
-  position: absolute;  
-  width: 100%;  
-  height: 100%;  
-  animation: rotate 15s linear infinite;  
-  transform-origin: center center;  
-}  
+    nav a:hover {
+      background: #007bff;
+    }
 
-@keyframes rotate {  
-  from { transform: rotate(0deg); }  
-  to { transform: rotate(360deg); }  
-}  
+    main {
+      padding-top: 100px;
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
 
-.small-circle {  
-  position: absolute;  
-  width: 80px;  
-  height: 80px;  
-  border-radius: 50%;  
-  overflow: hidden;  
-  border: 2px solid white;  
-  box-shadow: 0 0 10px rgba(0,123,255,0.5);  
-  top: 50%;  
-  left: 50%;  
-  transform-origin: -150px 0;  
-}  
+    /* Big rotating circle container */
+    .big-circle {
+      position: relative;
+      width: 400px;
+      height: 400px;
+      margin: 0 auto 50px auto;
+      border-radius: 50%;
+      border: 4px solid rgba(255,255,255,0.4);
+      box-shadow: 0 0 20px rgba(0,123,255,0.8), 0 0 40px rgba(0,188,212,0.5);
+      animation: glowPulse 3s infinite alternate;
+      overflow: visible;
+    }
 
-.small-circle img {  
-  width: 100%;  
-  height: 100%;  
-  object-fit: cover;  
-}  
+    @keyframes glowPulse {
+      from { box-shadow: 0 0 15px rgba(0,123,255,0.6), 0 0 30px rgba(0,188,212,0.4); }
+      to { box-shadow: 0 0 25px rgba(0,123,255,1), 0 0 50px rgba(0,188,212,0.8); }
+    }
 
-/* Distribute small images evenly in a circle */  
-.small-circle:nth-child(1) { transform: rotate(0deg) translateX(150px); }  
-.small-circle:nth-child(2) { transform: rotate(60deg) translateX(150px); }  
-.small-circle:nth-child(3) { transform: rotate(120deg) translateX(150px); }  
-.small-circle:nth-child(4) { transform: rotate(180deg) translateX(150px); }  
-.small-circle:nth-child(5) { transform: rotate(240deg) translateX(150px); }  
-.small-circle:nth-child(6) { transform: rotate(300deg) translateX(150px); }  
+    .rotating-images {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      animation: rotate 15s linear infinite;
+      transform-origin: center center;
+    }
 
-section {  
-  padding: 80px 20px;  
-  text-align: center;  
-  background: rgba(0,0,0,0.4);  
-  margin-bottom: 30px;  
-  border-radius: 10px;  
-}  
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
 
-h1 {  
-  font-size: 2rem;  
-  margin-bottom: 20px;  
-  text-shadow: 0 0 8px rgba(0,123,255,0.7);  
-}  
+    .small-circle {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid white;
+      box-shadow: 0 0 10px rgba(0,123,255,0.5);
+      top: 50%;
+      left: 50%;
+      transform-origin: -150px 0;
+    }
 
-p {  
-  font-size: 1.1rem;  
-  color: #d0d0d0;  
-}  
+    .small-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
-footer {  
-  background: rgba(0,0,0,0.6);  
-  color: #d0d0d0;  
-  text-align: center;  
-  padding: 20px 10px;  
-  font-size: 0.9rem;  
-  position: relative;  
-  margin-top: 50px;  
-}  
+    .small-circle:nth-child(1) { transform: rotate(0deg) translateX(150px); }
+    .small-circle:nth-child(2) { transform: rotate(60deg) translateX(150px); }
+    .small-circle:nth-child(3) { transform: rotate(120deg) translateX(150px); }
+    .small-circle:nth-child(4) { transform: rotate(180deg) translateX(150px); }
+    .small-circle:nth-child(5) { transform: rotate(240deg) translateX(150px); }
+    .small-circle:nth-child(6) { transform: rotate(300deg) translateX(150px); }
 
-footer a {  
-  color: #00bfff;  
-  text-decoration: none;  
-  margin: 0 10px;  
-}  
+    section {
+      padding: 80px 20px;
+      text-align: center;
+      background: rgba(0,0,0,0.4);
+      margin-bottom: 30px;
+      border-radius: 10px;
+    }
 
-footer a:hover {  
-  text-decoration: underline;  
-}  
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      text-shadow: 0 0 8px rgba(0,123,255,0.7);
+    }
 
-@media (max-width: 900px) {  
-  .small-circle { width: 60px; height: 60px; transform-origin: -110px 0; }  
-  .small-circle:nth-child(1) { transform: rotate(0deg) translateX(110px); }  
-  .small-circle:nth-child(2) { transform: rotate(60deg) translateX(110px); }  
-  .small-circle:nth-child(3) { transform: rotate(120deg) translateX(110px); }  
-  .small-circle:nth-child(4) { transform: rotate(180deg) translateX(110px); }  
-  .small-circle:nth-child(5) { transform: rotate(240deg) translateX(110px); }  
-  .small-circle:nth-child(6) { transform: rotate(300deg) translateX(110px); }  
-  .big-circle { width: 300px; height: 300px; }  
-}  
+    p {
+      font-size: 1.1rem;
+      color: #d0d0d0;
+    }
 
-@media (max-width: 600px) {  
-  .small-circle { width: 50px; height: 50px; transform-origin: -90px 0; }  
-  .small-circle:nth-child(1) { transform: rotate(0deg) translateX(90px); }  
-  .small-circle:nth-child(2) { transform: rotate(60deg) translateX(90px); }  
-  .small-circle:nth-child(3) { transform: rotate(120deg) translateX(90px); }  
-  .small-circle:nth-child(4) { transform: rotate(180deg) translateX(90px); }  
-  .small-circle:nth-child(5) { transform: rotate(240deg) translateX(90px); }  
-  .small-circle:nth-child(6) { transform: rotate(300deg) translateX(90px); }  
-  .big-circle { width: 250px; height: 250px; }  
-}
+    footer {
+      background: rgba(0,0,0,0.6);
+      color: #d0d0d0;
+      text-align: center;
+      padding: 20px 10px;
+      font-size: 0.9rem;
+      position: relative;
+      margin-top: 50px;
+    }
 
-  </style>  
-</head>  
-<body>  
-  <header>  
-    <div class="logo">  
-      <img src="https://ik.imagekit.io/eabxb3gvp/Church%20Logo%20transparent.png?updatedAt=1763034506236" alt="HOPGC Logo">  
-    </div>  
-    <div class="menu-icon">  
-      <div></div>  
-      <div></div>  
-      <div></div>  
-    </div>  
-  </header>    <main>  
-    <!-- Big rotating circle with multiple images -->  
+    footer a {
+      color: #00bfff;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 900px) {
+      .small-circle { width: 60px; height: 60px; transform-origin: -110px 0; }
+      .small-circle:nth-child(1) { transform: rotate(0deg) translateX(110px); }
+      .small-circle:nth-child(2) { transform: rotate(60deg) translateX(110px); }
+      .small-circle:nth-child(3) { transform: rotate(120deg) translateX(110px); }
+      .small-circle:nth-child(4) { transform: rotate(180deg) translateX(110px); }
+      .small-circle:nth-child(5) { transform: rotate(240deg) translateX(110px); }
+      .small-circle:nth-child(6) { transform: rotate(300deg) translateX(110px); }
+      .big-circle { width: 300px; height: 300px; }
+    }
+
+    @media (max-width: 600px) {
+      .small-circle { width: 50px; height: 50px; transform-origin: -90px 0; }
+      .small-circle:nth-child(1) { transform: rotate(0deg) translateX(90px); }
+      .small-circle:nth-child(2) { transform: rotate(60deg) translateX(90px); }
+      .small-circle:nth-child(3) { transform: rotate(120deg) translateX(90px); }
+      .small-circle:nth-child(4) { transform: rotate(180deg) translateX(90px); }
+      .small-circle:nth-child(5) { transform: rotate(240deg) translateX(90px); }
+      .small-circle:nth-child(6) { transform: rotate(300deg) translateX(90px); }
+      .big-circle { width: 250px; height: 250px; }
+    }
+
+    /* Menu open animation */
+    .menu-icon.active div:nth-child(1) {
+      transform: rotate(45deg) translate(7px, 7px);
+    }
+    .menu-icon.active div:nth-child(2) {
+      opacity: 0;
+    }
+    .menu-icon.active div:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -7px);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="https://ik.imagekit.io/eabxb3gvp/Church%20Logo%20transparent.png?updatedAt=1763034506236" alt="HOPGC Logo">
+    </div>
+    <div class="menu-icon" id="menu-icon">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+
+    <nav id="nav-menu">
+      <a href="home.html">Home</a>
+      <a href="program.html">Programs</a>
+      <a href="news.html">News</a>
+      <a href="bookshop.html">Bookshop</a>
+      <a href="support.html">Support</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Big rotating circle with multiple images -->
     <div class="big-circle">
-     <img class="center-image" src="https://ik.imagekit.io/eabxb3gvp/IMG-20240319-WA0088-1.jpg" alt="">
-      <div class="rotating-images">  
-        <div class="small-circle"><img src="https://ik.imagekit.io/eabxb3gvp/+234%20701%20269%209982%2020251113_151854.jpg" alt=""></div>  
-        <div class="small-circle"><img src="https://ik.imagekit.io/eabxb3gvp/IMG-20240319-WA0088-1.jpg" alt=""></div>  
-        <div class="small-circle"><img src="https://ik.imagekit.io/eabxb3gvp/images%20(4).jpeg" alt=""></div>  
-        <div class="small-circle"><img src="https://ik.imagekit.io/eabxb3gvp/+234%20701%20269%209982%2020251113_151854.jpg" alt=""></div>  
-        <div class="small-circle"><img src="https://ik.imagekit.io/eabxb3gvp/IMG-20240319-WA0088-1.jpg" alt=""></div>  
-        <div class="small-circle"><img src="https://ik.imagekit.io/eabxb3gvp/images%20(4).jpeg" alt=""></div>  
-      </div>  
-    </div>  
-    
-      <a href="program.html">
+      <img class="center-image" src="https://ik.imagekit.io/eabxb3gvp/IMG-20240319-WA0088-1.jpg" alt="">
+      <div class="rotating-images">
+        <div class="small-circle"><img src="https://ik.imagekit.io/eabxb3gvp/+234%20701%20269%209982%2020251113_151854.jpg" alt=""></div>
+        <div class="small-circle"><img src="https://ik.imagekit.io/eabxb3gvp/IMG-20240319-WA0088-1.jpg" alt=""></div>
+        <div class="small-circle"><img src="https://ik.imagekit.io/eabxb3gvp/images%20(4).jpeg" alt=""></div>
+        <div class="small-circle"><img src="https://ik.imagekit.io/eabxb3gvp/+234%20701%20269%209982%2020251113_151854.jpg" alt=""></div>
+        <div class="small-circle"><img src="https://ik.imagekit.io/eabxb3gvp/IMG-20240319-WA0088-1.jpg" alt=""></div>
+        <div class="small-circle"><img src="https://ik.imagekit.io/eabxb3gvp/images%20(4).jpeg" alt=""></div>
+      </div>
+    </div>
+
+    <a href="program.html">
       <section>
         <h1>Our Programs</h1>
         <p>Join our worship sessions, teaching programs, and community events.</p>
@@ -258,7 +309,6 @@ footer a:hover {
         <p>Partner with us through prayers, volunteering, and giving.</p>
       </section>
     </a>
-
   </main>
 
   <footer>
@@ -268,5 +318,21 @@ footer a:hover {
     <a href="#">Twitter</a>
   </footer>
 
+  <script>
+    const menuIcon = document.getElementById('menu-icon');
+    const navMenu = document.getElementById('nav-menu');
+
+    menuIcon.addEventListener('click', () => {
+      menuIcon.classList.toggle('active');
+      navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!menuIcon.contains(e.target) && !navMenu.contains(e.target)) {
+        navMenu.style.display = 'none';
+        menuIcon.classList.remove('active');
+      }
+    });
+  </script>
 </body>
 </html>
