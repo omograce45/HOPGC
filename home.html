@@ -201,6 +201,13 @@
       to { transform: rotate(360deg); }
     }
 
+    section i {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 12px;
+  stroke-width: 2.2;
+    }
+
     .small-circle {
       position: absolute;
       width: 80px;
@@ -335,32 +342,37 @@
     </div>
 
     <a href="program.html">
-      <section>
-        <h1>Our Programs</h1>
-        <p>Join our worship sessions, teaching programs, and community events.</p>
-      </section>
+  <section>
+    <i data-lucide="calendar-days"></i>
+    <h1>Our Programs</h1>
+    <p>Join our worship sessions, teaching programs, and community events.</p>
+  </section>
     </a>
 
     <a href="news.html">
-      <section>
-        <h1>Latest News</h1>
-        <p>Stay updated with the latest happenings at HOPGC.</p>
-      </section>
+  <section>
+    <i data-lucide="newspaper"></i>
+    <h1>Latest News</h1>
+    <p>Stay updated with the latest happenings at HOPGC.</p>
+  </section>
     </a>
 
     <a href="bookshop.html">
-      <section>
-        <h1>Bookshop</h1>
-        <p>Explore our collection of spiritual books, devotionals, and study materials.</p>
-      </section>
+  <section>
+    <i data-lucide="book"></i>
+    <h1>Bookshop</h1>
+    <p>Explore our collection of spiritual books, devotionals, and study materials.</p>
+  </section>
     </a>
 
     <a href="support.html">
-      <section>
-        <h1>Support</h1>
-        <p>Partner with us through prayers, volunteering, and giving.</p>
-      </section>
+  <section>
+    <i data-lucide="handshake"></i>
+    <h1>Support</h1>
+    <p>Partner with us through prayers, volunteering, and giving.</p>
+  </section>
     </a>
+    
     <!-- Add this directly under the existing support cards grid -->
 <section class="vision-section">
   <div class="vision-container">
@@ -400,5 +412,10 @@
       }
     });
   </script>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+<script>
+  lucide.createIcons();
+</script>
 </body>
 </html>
