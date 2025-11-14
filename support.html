@@ -12,18 +12,66 @@ body{
   url('https://ik.imagekit.io/eabxb3gvp/images%20(4).jpeg') no-repeat center center/cover;
   color:white;overflow-x:hidden;
 }
+
+/* Hamburger menu styles */
+.menu-icon {
+  width: 35px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.menu-icon div {
+  height: 4px;
+  background: white;
+  margin: 6px 0;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+nav {
+  position: absolute;
+  top: 70px;
+  right: 30px;
+  background: rgba(0,0,0,0.8);
+  border-radius: 10px;
+  overflow: hidden;
+  display: none;
+  flex-direction: column;
+  min-width: 150px;
+  z-index: 999;
+}
+nav a {
+  padding: 12px 20px;
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: 0.3s;
+}
+nav a:hover {
+  background: #007bff;
+}
+/* Menu open animation */
+.menu-icon.active div:nth-child(1) {
+  transform: rotate(45deg) translate(7px, 7px);
+}
+.menu-icon.active div:nth-child(2) {
+  opacity: 0;
+}
+.menu-icon.active div:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Original styles */
 header{position:fixed;top:0;left:0;right:0;height:70px;display:flex;justify-content:space-between;align-items:center;padding:0 30px;background:rgba(0,0,0,0.55);z-index:1000;}
 .logo img{height:50px;}
 main{padding-top:120px;max-width:1000px;margin:auto;text-align:center;}
 h1{font-size:2.3rem;text-shadow:0 0 10px rgba(0,123,255,0.8);margin-bottom:20px;}
 .subtitle{font-size:1.1rem;color:#e0e0e0;margin-bottom:35px;}
-
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   gap:25px;
 }
-
 .card{
   background:rgba(0,0,0,0.6);
   border-radius:15px;
@@ -54,7 +102,6 @@ h1{font-size:2.3rem;text-shadow:0 0 10px rgba(0,123,255,0.8);margin-bottom:20px;
   line-height:1.4rem;
   margin-bottom:6px;
 }
-
 footer{background:rgba(0,0,0,0.6);color:#d0d0d0;text-align:center;padding:20px 10px;font-size:0.9rem;margin-top:60px;}
 footer a{color:#00bfff;margin:0 10px;text-decoration:none;}
 footer a:hover{text-decoration:underline;}
@@ -67,6 +114,22 @@ footer a:hover{text-decoration:underline;}
   <div class="logo">
     <img src="https://ik.imagekit.io/eabxb3gvp/Church%20Logo%20transparent.png" alt="HOPGC Logo">
   </div>
+
+  <!-- Hamburger menu icon -->
+  <div class="menu-icon" id="menu-icon">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <!-- Dropdown menu -->
+  <nav id="nav-menu">
+    <a href="home.html">Home</a>
+    <a href="program.html">Programs</a>
+    <a href="news.html">News</a>
+    <a href="bookshop.html">Bookshop</a>
+    <a href="support.html">Support</a>
+  </nav>
 </header>
 
 <main>
@@ -135,5 +198,23 @@ footer a:hover{text-decoration:underline;}
   <a href="#">Twitter</a>
 </footer>
 
+<script>
+const menuIcon = document.getElementById('menu-icon');
+const navMenu = document.getElementById('nav-menu');
+
+menuIcon.addEventListener('click', () => {
+  menuIcon.classList.toggle('active');
+  navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+});
+
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+  if (!menuIcon.contains(e.target) && !navMenu.contains(e.target)) {
+    navMenu.style.display = 'none';
+    menuIcon.classList.remove('active');
+  }
+});
+</script>
+
 </body>
-</html>
+  </html>
