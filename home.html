@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -387,7 +388,66 @@ section i {
   left: 50% !important;
   transform: translateX(-50%) !important;
   margin-left: 0 !important;
+}
+
+.testimonials {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.testimonials h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+.slider {
+  position: relative;
+  overflow: hidden;
+  max-width: 350px;
+  margin: auto;
+}
+
+.slide {
+  display: none;
+  animation: fade 1s ease;
+}
+
+.slide.active {
+  display: block;
+}
+
+.slide img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  object-fit: cover;
+}
+
+.dots {
+  margin-top: 15px;
+}
+
+.dot {
+  height: 12px;
+  width: 12px;
+  margin: 0 4px;
+  display: inline-block;
+  background: #aaa;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.dot.active {
+  background: #333;
+}
+
+@keyframes fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }    
+    
 
   </style>
 </head>
@@ -471,6 +531,35 @@ section i {
     </div>
   </div>
 </section>
+<section class="testimonials">
+  <h2>What People Say</h2>
+  <div class="slider">
+    <div class="slide active">
+      <img src="https://via.placeholder.com/120" alt="Person 1">
+      <p>“Amazing service and great experience!”</p>
+      <h3>- John Doe</h3>
+    </div>
+
+    <div class="slide">
+      <img src="https://via.placeholder.com/120" alt="Person 2">
+      <p>“Very helpful team and reliable support.”</p>
+      <h3>- Sarah Lee</h3>
+    </div>
+
+    <div class="slide">
+      <img src="https://via.placeholder.com/120" alt="Person 3">
+      <p>“I recommend them 100%!”</p>
+      <h3>- Michael King</h3>
+    </div>
+  </div>
+
+  <div class="dots">
+    <span class="dot active"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+</section>
+    
   </main>
 
   <footer>
@@ -501,5 +590,33 @@ section i {
 <script>
   lucide.createIcons();
 </script>
+<script>
+let index = 0;
+let slides = document.querySelectorAll(".slide");
+let dots = document.querySelectorAll(".dot");
+
+function showSlide(i) {
+  slides.forEach(s => s.classList.remove("active"));
+  dots.forEach(d => d.classList.remove("active"));
+
+  slides[i].classList.add("active");
+  dots[i].classList.add("active");
+}
+
+function autoSlide() {
+  index = (index + 1) % slides.length;
+  showSlide(index);
+}
+
+dots.forEach((dot, i) => {
+  dot.addEventListener("click", () => {
+    index = i;
+    showSlide(i);
+  });
+});
+
+setInterval(autoSlide, 3000); // change every 3 seconds
+</script>
+  
 </body>
 </html>
