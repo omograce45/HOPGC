@@ -12,6 +12,57 @@ body {
               url('https://ik.imagekit.io/eabxb3gvp/images%20(4).jpeg?updatedAt=1763042745236') no-repeat center center/cover;
   color:white;overflow-x:hidden;
 }
+
+/* Hamburger menu styles */
+.menu-icon {
+  width: 35px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.menu-icon div {
+  height: 4px;
+  background: white;
+  margin: 6px 0;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+nav {
+  position: absolute;
+  top: 70px;
+  right: 30px;
+  background: rgba(0,0,0,0.8);
+  border-radius: 10px;
+  overflow: hidden;
+  display: none;
+  flex-direction: column;
+  min-width: 150px;
+  z-index: 999;
+}
+nav a {
+  padding: 12px 20px;
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: 0.3s;
+}
+nav a:hover {
+  background: #007bff;
+}
+
+/* Menu open animation */
+.menu-icon.active div:nth-child(1) {
+  transform: rotate(45deg) translate(7px, 7px);
+}
+.menu-icon.active div:nth-child(2) {
+  opacity: 0;
+}
+.menu-icon.active div:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Original styles */
 header {position:fixed;top:0;left:0;right:0;height:70px;display:flex;justify-content:space-between;align-items:center;padding:0 30px;background:rgba(0,0,0,0.5);z-index:1000;}
 .logo img {height:50px;}
 main {padding-top:120px;max-width:1100px;margin:auto;text-align:center;}
@@ -40,7 +91,24 @@ footer a:hover {text-decoration:underline;}
   <div class="logo">
     <img src="https://ik.imagekit.io/eabxb3gvp/Church%20Logo%20transparent.png?updatedAt=1763034506236" alt="HOPGC Logo">
   </div>
+
+  <!-- Hamburger menu icon -->
+  <div class="menu-icon" id="menu-icon">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <!-- Dropdown menu -->
+  <nav id="nav-menu">
+    <a href="home.html">Home</a>
+    <a href="program.html">Programs</a>
+    <a href="news.html">News</a>
+    <a href="bookshop.html">Bookshop</a>
+    <a href="support.html">Support</a>
+  </nav>
 </header>
+
 <main>
   <h1>Latest News</h1>
   <p class="subtitle">Stay updated with fresh updates, announcements & upcoming events.</p>
@@ -68,11 +136,31 @@ footer a:hover {text-decoration:underline;}
     </div>
   </div>
 </main>
+
 <footer>
   &copy; 2025 House of Perfection Gospel Centre |
   <a href="#">Facebook</a> |
   <a href="#">Instagram</a> |
   <a href="#">Twitter</a>
 </footer>
+
+<script>
+const menuIcon = document.getElementById('menu-icon');
+const navMenu = document.getElementById('nav-menu');
+
+menuIcon.addEventListener('click', () => {
+  menuIcon.classList.toggle('active');
+  navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+});
+
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+  if (!menuIcon.contains(e.target) && !navMenu.contains(e.target)) {
+    navMenu.style.display = 'none';
+    menuIcon.classList.remove('active');
+  }
+});
+</script>
+
 </body>
 </html>
