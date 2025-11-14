@@ -21,8 +21,7 @@
       align-items: center;
       text-align: center;
       position: relative;
-      overflow: hidden;
-      /* Darker background overlay added */
+      overflow-x: hidden;
       background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
                   url('https://ik.imagekit.io/eabxb3gvp/IMG-20240319-WA0088-1.jpg?updatedAt=1763030613645') no-repeat center center/cover;
       color: white;
@@ -36,30 +35,60 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      z-index: 2;
+      z-index: 5;
     }
 
     .logo img {
-      height: 50px; /* Adjust the logo size */
+      height: 50px;
       width: auto;
     }
 
     .menu-icon {
       width: 35px;
       cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .menu-icon div {
       height: 4px;
       background: white;
-      margin: 6px 0;
+      margin: 5px 0;
       border-radius: 5px;
       transition: 0.3s;
+    }
+
+    /* Dropdown Menu */
+    nav {
+      position: absolute;
+      top: 70px;
+      right: 30px;
+      background: rgba(0,0,0,0.8);
+      border-radius: 10px;
+      overflow: hidden;
+      display: none; /* Hidden by default */
+      flex-direction: column;
+      min-width: 150px;
+      z-index: 4;
+    }
+
+    nav a {
+      padding: 12px 20px;
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      background: #007bff;
     }
 
     .content {
       position: relative;
       z-index: 2;
+      padding: 20px;
     }
 
     h1 {
@@ -71,7 +100,7 @@
 
     p {
       font-size: 1.1rem;
-      color: #007bff;
+      color: #00bcd4;
       margin-bottom: 30px;
     }
 
@@ -93,25 +122,77 @@
       transform: scale(1.05);
       box-shadow: 0 0 15px rgba(0, 188, 212, 0.6);
     }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+
+      .btn {
+        padding: 10px 25px;
+      }
+    }
+
+    /* Menu open animation */
+    .menu-icon.active div:nth-child(1) {
+      transform: rotate(45deg) translate(7px, 7px);
+    }
+
+    .menu-icon.active div:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-icon.active div:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -7px);
+    }
   </style>
 </head>
 <body>
   <header>
     <div class="logo">
-      <!-- UPDATED: Your custom logo -->
       <img src="https://ik.imagekit.io/eabxb3gvp/Church%20Logo%20transparent.png?updatedAt=1763034506236" alt="HOPGC Logo">
     </div>
-    <div class="menu-icon">
+    <div class="menu-icon" id="menu-icon">
       <div></div>
       <div></div>
       <div></div>
     </div>
+
+    <nav id="nav-menu">
+      <a href="home.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="program.html">Programs</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </header>
 
   <div class="content">
     <h1>House of Perfection Gospel Centre</h1>
-    </p>Raising Many for Kingship Manifestation</p>
+    <p>Raising Many for Kingship Manifestation</p>
     <a href="home.html" class="btn">Welcome</a>
   </div>
+
+  <script>
+    const menuIcon = document.getElementById('menu-icon');
+    const navMenu = document.getElementById('nav-menu');
+
+    menuIcon.addEventListener('click', () => {
+      menuIcon.classList.toggle('active');
+      navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!menuIcon.contains(e.target) && !navMenu.contains(e.target)) {
+        navMenu.style.display = 'none';
+        menuIcon.classList.remove('active');
+      }
+    });
+  </script>
 </body>
 </html>
