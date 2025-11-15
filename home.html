@@ -449,7 +449,7 @@ section i {
 }   
 
 .trending-news {
-  background: #0b3a81;   /* Change to your brand color */
+  background: #0b3a81;
   color: #fff;
   padding: 8px 10px;
   font-size: 14px;
@@ -457,8 +457,7 @@ section i {
   align-items: center;
   overflow: hidden;
   white-space: nowrap;
-  margin-bottom: 35px; /* 👈 Add this line */
-  margin-top: 0px;
+  margin-bottom: 25px;
 }
 
 .trending-news span {
@@ -469,22 +468,19 @@ section i {
 .news-ticker {
   overflow: hidden;
   flex: 1;
+  position: relative;
 }
 
-.news-ticker p {
+.ticker-content {
   display: inline-block;
-  animation: scroll-left 24s linear infinite;
-  margin: 0;
+  white-space: nowrap;
+  animation: smooth-scroll 15s linear infinite;
 }
 
-@keyframes scroll-left {
-  0% {
-    transform: translateX(100%);
+@keyframes smooth-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
   }
-  100% {
-    transform: translateX(-100%);
-  }
-}  
     
   </style>
 </head>
