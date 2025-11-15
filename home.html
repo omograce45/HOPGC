@@ -446,9 +446,44 @@ section i {
 @keyframes fade {
   from { opacity: 0; }
   to { opacity: 1; }
+}   
+
+.trending-news {
+  background: #0b3a81;   /* Change to your brand color */
+  color: #fff;
+  padding: 8px 10px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.trending-news span {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.news-ticker {
+  overflow: hidden;
+  flex: 1;
+}
+
+.news-ticker p {
+  display: inline-block;
+  animation: scroll-left 12s linear infinite;
+  margin: 0;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }    
     
-
   </style>
 </head>
 <body>
@@ -472,6 +507,16 @@ section i {
   </header>
 
   <main>
+    
+    <div class="trending-news">
+  <span>🔥 Trending:</span>
+  <div class="news-ticker">
+    <p>
+      New church programs coming soon! &nbsp; • &nbsp; Support our mission today! &nbsp; • &nbsp; Bookshop now online! &nbsp; • &nbsp; Latest church news available!
+    </p>
+  </div>
+    </div>
+    
     <!-- Big rotating circle with multiple images -->
     <div class="big-circle">
       <img class="center-image" src="https://ik.imagekit.io/eabxb3gvp/IMG-20240319-WA0088-1.jpg" alt="">
