@@ -884,6 +884,31 @@ section i {
 
   setInterval(nextSlide, 4000); // Change slide every 4 seconds
 </script>
+
+  <script>
+let slideIndex = 0;
+const slides = document.querySelectorAll(".slide");
+const dots = document.querySelectorAll(".dot");
+
+function showSlides() {
+  // Remove active from all
+  slides.forEach(slide => slide.classList.remove("active"));
+  dots.forEach(dot => dot.classList.remove("active"));
+
+  // Increment index
+  slideIndex++;
+  if (slideIndex > slides.length) { slideIndex = 1 }
+
+  // Add active to current slide & dot
+  slides[slideIndex - 1].classList.add("active");
+  dots[slideIndex - 1].classList.add("active");
+
+  setTimeout(showSlides, 3000); // Slide every 3 seconds
+}
+
+showSlides();
+  </script>
+  
   
 </body>
 </html>
