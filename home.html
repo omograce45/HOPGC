@@ -550,20 +550,33 @@ section i {
   transition: 0.4s ease-in-out;
 }
 
-.main-slider {
+.trending-box {
+  display: inline-block;
+  background: #3ab5ff;
+  padding: 8px 20px;
+  color: white;
+  font-weight: 700;
+  border-radius: 5px;
+  margin: 20px auto;
+  text-align: center;
+  font-size: 14px;
+}
+
+.smooth-slider {
   width: 100%;
   overflow: hidden;
   border-radius: 10px;
-  margin: 15px 0;
+  margin-top: 10px;
+  position: relative;
 }
 
-.main-slider .slides {
+.smooth-track {
   display: flex;
   width: 300%;
-  animation: slide 12s infinite;
+  transition: transform 0.9s ease-in-out;
 }
 
-.main-slider img {
+.smooth-track img {
   width: 100%;
   height: 230px;
   object-fit: cover;
@@ -573,7 +586,7 @@ section i {
 /* Dots */
 .slider-dots {
   text-align: center;
-  margin-top: 8px;
+  margin-top: 10px;
 }
 
 .dot {
@@ -583,23 +596,12 @@ section i {
   border-radius: 50%;
   display: inline-block;
   margin: 4px;
+  transition: 0.3s;
 }
 
 .dot.active {
-  background: #555;
-}
-
-/* Slider Animation */
-@keyframes slide {
-  0% { margin-left: 0; }
-  30% { margin-left: 0; }
-
-  35% { margin-left: -100%; }
-  65% { margin-left: -100%; }
-
-  70% { margin-left: -200%; }
-  100% { margin-left: -200%; }
-  }    
+  background: #333;
+    }
      
   </style>
 </head>
@@ -635,21 +637,21 @@ section i {
   </div>
     </div>
 
-    <!-- SLIDER SECTION -->
-<div class="main-slider">
-  <div class="slides">
-    <img src="https://picsum.photos/900/350?1" alt="">
-    <img src="https://picsum.photos/900/350?2" alt="">
-    <img src="https://picsum.photos/900/350?3" alt="">
-  </div>
+    <div class="trending-box">TRENDING NOW</div>
+
+<div class="smooth-slider">
+    <div class="smooth-track">
+        <img src="https://picsum.photos/900/350?1">
+        <img src="https://picsum.photos/900/350?2">
+        <img src="https://picsum.photos/900/350?3">
+    </div>
 </div>
 
-<!-- DOTS -->
 <div class="slider-dots">
-  <span class="dot active"></span>
-  <span class="dot"></span>
-  <span class="dot"></span>
-</div>  
+    <span class="dot active"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+</div>
     
     <!-- Big rotating circle with multiple images -->
     <div class="big-circle">
