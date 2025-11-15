@@ -402,21 +402,21 @@ section i {
 }
 
 .slider {
-  position: relative;
   overflow: hidden;
+  width: 100%;
   max-width: 350px;
   margin: auto;
 }
 
+.slider-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
 .slide {
-  display: none;
-  animation: fade 1s ease;
+  min-width: 100%;
+  text-align: center;
 }
-
-.slide.active {
-  display: block;
-}
-
 .slide img {
   width: 120px;
   height: 120px;
@@ -786,26 +786,28 @@ section i {
   <img src="https://ik.imagekit.io/eabxb3gvp/IMG-20250102-WA0012-1.jpg?updatedAt=1763191866126" alt="Theme of the Month">
   </section>
 
-</section>
-<section class="testimonials">
+  <section class="testimonials">
   <h2>Testimonials</h2>
+
   <div class="slider">
-    <div class="slide active">
-      <img src="https://ik.imagekit.io/eabxb3gvp/Church%20Logo%20transparent.png?updatedAt=1763034506236" alt="Person 1">
-      <p>“Amazing service and great experience!”</p>
-      <h3>- John Doe</h3>
-    </div>
+    <div class="slider-track">
+      <div class="slide">
+        <img src="https://ik.imagekit.io/eabxb3gvp/Church%20Logo%20transparent.png?updatedAt=1763034506236" alt="Person 1">
+        <p>“Amazing service and great experience!”</p>
+        <h3>- John Doe</h3>
+      </div>
 
-    <div class="slide">
-      <img src="https://ik.imagekit.io/eabxb3gvp/Church%20Logo%20transparent.png?updatedAt=1763034506236" alt="Person 2">
-      <p>“Very helpful team and reliable support.”</p>
-      <h3>- Sarah Lee</h3>
-    </div>
+      <div class="slide">
+        <img src="https://ik.imagekit.io/eabxb3gvp/Church%20Logo%20transparent.png?updatedAt=1763034506236" alt="Person 2">
+        <p>“Very helpful team and reliable support.”</p>
+        <h3>- Sarah Lee</h3>
+      </div>
 
-    <div class="slide">
-      <img src="https://ik.imagekit.io/eabxb3gvp/Church%20Logo%20transparent.png?updatedAt=1763034506236" alt="Person 3">
-      <p>“I recommend them 100%!”</p>
-      <h3>- Michael King</h3>
+      <div class="slide">
+        <img src="https://ik.imagekit.io/eabxb3gvp/Church%20Logo%20transparent.png?updatedAt=1763034506236" alt="Person 3">
+        <p>“I recommend them 100%!”</p>
+        <h3>- Michael King</h3>
+      </div>
     </div>
   </div>
 
@@ -814,7 +816,8 @@ section i {
     <span class="dot"></span>
     <span class="dot"></span>
   </div>
-</section>
+  </section>
+
 
  <section class="new-life-section">
   <h2>New Life in Christ</h2>
@@ -885,30 +888,38 @@ section i {
   setInterval(nextSlide, 4000); // Change slide every 4 seconds
 </script>
 
-  <script>
-let slideIndex = 0;
-const slides = document.querySelectorAll(".slide");
-const dots = document.querySelectorAll(".dot");
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const track = document.querySelector(".slider-track");
+  const slides = document.querySelectorAll(".slide");
+  const dots = document.querySelectorAll(".dot");
 
-function showSlides() {
-  // Remove active from all
-  slides.forEach(slide => slide.classList.remove("active"));
-  dots.forEach(dot => dot.classList.remove("active"));
+  let index = 0;
 
-  // Increment index
-  slideIndex++;
-  if (slideIndex > slides.length) { slideIndex = 1 }
+  function updateSlider() {
+    track.style.transform = `translateX(-${index * 100}%)`;
 
-  // Add active to current slide & dot
-  slides[slideIndex - 1].classList.add("active");
-  dots[slideIndex - 1].classList.add("active");
+    dots.forEach(dot => dot.classList.remove("active"));
+    dots[index].classList.add("active");
+  }
 
-  setTimeout(showSlides, 3000); // Slide every 3 seconds
-}
+  function autoSlide() {
+    index = (index + 1) % slides.length;
+    updateSlider();
+  }
 
-showSlides();
-  </script>
-  
+  let slideInterval = setInterval(autoSlide, 3000);
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener("click", () => {
+      index = i;
+      updateSlider();
+      clearInterval(slideInterval);
+      slideInterval = setInterval(autoSlide, 3000);
+    });
+  });
+});
+</script>
   
 </body>
 </html>
