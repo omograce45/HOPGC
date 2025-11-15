@@ -551,13 +551,15 @@ section i {
 }
 
 .fade-slider {
-  width: 370px; /* Smaller width */
-  margin: 50px auto 10px auto; /* Center slider */
+  width: 80%; /* Moderate width relative to page */
+  max-width: 900px; /* Limit max width for large screens */
+  min-width: 600px; /* Minimum width for readability */
+  margin: 50px auto 20px auto; /* Center slider with spacing */
   position: relative;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  height: 250px; /* Smaller height */
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+  height: 300px; /* Short height for elegance */
 }
 
 .fade-slide {
@@ -565,7 +567,7 @@ section i {
   width: 100%;
   height: 100%;
   opacity: 0;
-  transition: opacity 1.2s ease-in-out;
+  transition: opacity 1.5s ease-in-out;
 }
 
 .fade-slide.active {
@@ -582,28 +584,29 @@ section i {
 
 .caption {
   position: absolute;
-  bottom: 10px;
-  left: 10px;
+  bottom: 15px;
+  left: 15px;
   color: #fff;
   background: rgba(0,0,0,0.5);
-  padding: 5px 10px;
-  border-radius: 4px;
-  font-size: 1em;
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-size: 1.1em;
   font-weight: bold;
 }
 
 /* Dots below the slider */
 .dots {
-  width: 200px;
-  margin: 0 auto 50px auto;
+  width: 100%;
+  max-width: 900px;
+  margin: 10px auto 50px auto;
   text-align: center;
 }
 
 .dot {
   display: inline-block;
-  width: 12px;
-  height: 12px;
-  margin: 0 5px;
+  width: 14px;
+  height: 14px;
+  margin: 0 6px;
   background: #fff;
   border-radius: 50%;
   cursor: pointer;
@@ -613,7 +616,7 @@ section i {
 .dot.active {
   background: #3ab5ff;
   opacity: 1;
-}
+  }
     
      
   </style>
