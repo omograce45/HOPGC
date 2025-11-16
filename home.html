@@ -690,27 +690,48 @@ section i {
   transform: scale(1.05);
 }    
 
-.video-section {
+.video-slider-section {
   padding: 20px;
 }
 
-.video-box {
-  background: #fff;
-  padding: 15px;
-  border-radius: 10px;
+.video-slider-section h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  font-weight: bold;
 }
 
-.video-box video {
+/* Horizontal slider */
+.video-slider {
+  display: flex;
+  overflow-x: auto;
+  gap: 15px;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 10px;
+}
+
+.video-slider::-webkit-scrollbar {
+  display: none;
+}
+
+.video-card {
+  min-width: 250px;
+  background: #fff;
+  padding: 15px;
+  border-radius: 12px;
+  scroll-snap-align: start;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.video-card video {
   width: 100%;
   border-radius: 10px;
 }
 
-.video-title {
+.video-card h3 {
+  font-size: 14px;
   margin-top: 10px;
-  font-size: 16px;
   font-weight: bold;
-}    
-    
+}
     
      
   </style>
@@ -817,14 +838,35 @@ section i {
   </section>
     </a>
 
-    <section class="video-section">
-  <h2>Ministry Video</h2>
+    <section class="video-slider-section">
+  <h2>Ministry Videos</h2>
 
-  <div class="video-box">
-    <video controls>
-      <source src="https://ik.imagekit.io/eabxb3gvp/1727564331438-2.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
+  <div class="video-slider" id="videoSlider">
+    
+    <!-- VIDEO 1 -->
+    <div class="video-card">
+      <video controls>
+        <source src="video1.mp4" type="video/mp4">
+      </video>
+      <h3>Sunday Service Message – Rev. John Miracle</h3>
+    </div>
+
+    <!-- VIDEO 2 -->
+    <div class="video-card">
+      <video controls>
+        <source src="video2.mp4" type="video/mp4">
+      </video>
+      <h3>Faith & Power Teaching – Pastor Grace</h3>
+    </div>
+
+    <!-- VIDEO 3 -->
+    <div class="video-card">
+      <video controls>
+        <source src="video3.mp4" type="video/mp4">
+      </video>
+      <h3>Worship Night Live – Rev. Peter Andrew</h3>
+    </div>
+
   </div>
     </section>
     
@@ -1004,6 +1046,31 @@ document.addEventListener("DOMContentLoaded", () => {
   }, 1000); // one full turn each 1000ms
 })();
 </script>  
+
+<script>
+  const slider = document.getElementById("videoSlider");
+  let scrollAmount = 0;
+
+  function autoSlide() {
+    const cardWidth = slider.children[0].offsetWidth + 15; // width + gap
+
+    scrollAmount += cardWidth;
+
+    if (scrollAmount >= slider.scrollWidth - slider.clientWidth) {
+      scrollAmount = 0;
+    }
+
+    slider.scrollTo({
+      left: scrollAmount,
+      behavior: "smooth"
+    });
+  }
+
+  setInterval(autoSlide, 4000); // Slide every 4 seconds
+</script>
+  
+  
+  
   
 </body>
 </html>
