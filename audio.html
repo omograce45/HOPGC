@@ -129,6 +129,16 @@
   <h1>Audio Messages</h1>
   <p>Click and listen to inspirational messages.</p>
 
+    <!-- SEARCH SECTION -->
+  <div style="margin: 20px auto; max-width: 400px;">
+    <input 
+      type="text" 
+      id="searchInput" 
+      placeholder="Search messages..." 
+      style="width:100%; padding:10px; border-radius:5px; border:none; font-size:14px;"
+    >
+  </div>
+
   <!-- AUDIO CARD 1 -->
   <div class="audio-card">
     <img src="https://ik.imagekit.io/eabxb3gvp/Church%20Logo%20transparent.png" alt="Message Image">
@@ -268,6 +278,23 @@
     const active = menuIcon.classList.toggle("active");
     navMenu.style.display = active ? "flex" : "none";
   };
+
+  // SEARCH FUNCTIONALITY
+  const searchInput = document.getElementById("searchInput");
+  searchInput.addEventListener("input", function() {
+    const filter = this.value.toLowerCase();
+    const audioCards = document.querySelectorAll(".audio-card");
+
+    audioCards.forEach(card => {
+      const title = card.querySelector("h3").textContent.toLowerCase();
+      const pastor = card.querySelector("p").textContent.toLowerCase();
+      if (title.includes(filter) || pastor.includes(filter)) {
+        card.style.display = "flex";
+      } else {
+        card.style.display = "none";
+      }
+    });
+  });
 </script>
 
 </body>
