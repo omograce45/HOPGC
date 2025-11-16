@@ -161,6 +161,26 @@
 
 <p>If you just said that prayer? Congratulations and welcome to God’s family. To help you start your new life in Christ kindly <a class="blue-link" href="https://christembassy.org">click here</a> to get a free gift — a book titled <strong>Morning Dew Devotional</strong></strong>. God bless you.</p>
 
+<!-- COMMENTS SECTION -->
+<section id="comments-section" style="max-width: 600px; margin: 30px auto; padding: 20px; background: #f7f7f7; border-radius: 10px;">
+  <h2 style="text-align:center; margin-bottom: 15px; color:#007bff;">Comments</h2>
+
+  <!-- COMMENT FORM -->
+  <form id="commentForm" style="display:flex; flex-direction:column; gap:10px;">
+    <input type="text" id="nameInput" placeholder="Your Name" required
+      style="padding:10px; border-radius:5px; border:1px solid #ccc;">
+    <textarea id="commentInput" placeholder="Write your comment..." rows="4" required
+      style="padding:10px; border-radius:5px; border:1px solid #ccc;"></textarea>
+    <button type="submit" 
+      style="padding:10px; border:none; background:#007bff; color:white; font-weight:bold; border-radius:5px; cursor:pointer;">
+      Post Comment
+    </button>
+  </form>
+
+  <!-- COMMENTS LIST -->
+  <div id="commentsList" style="margin-top:20px;"></div>
+</section>
+  
 <footer>
   &copy; 2025 House of Perfection Gospel Centre |
   <a href="#">Facebook</a> |
@@ -181,6 +201,31 @@
       navMenu.style.display = 'none';
     }
   });
+
+  const commentForm = document.getElementById('commentForm');
+  const commentsList = document.getElementById('commentsList');
+
+  commentForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById('nameInput').value.trim();
+    const comment = document.getElementById('commentInput').value.trim();
+
+    if(name && comment) {
+      const commentElement = document.createElement('div');
+      commentElement.style.background = '#e0e0e0';
+      commentElement.style.padding = '10px';
+      commentElement.style.marginBottom = '10px';
+      commentElement.style.borderRadius = '5px';
+      commentElement.innerHTML = `<strong>${name}</strong><p>${comment}</p>`;
+      
+      commentsList.prepend(commentElement);
+
+      // Reset form
+      commentForm.reset();
+    }
+  });
+  
 </script>
 
 </body>
