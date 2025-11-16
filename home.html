@@ -120,18 +120,19 @@
     .logo img {
   height: 50px;
   width: auto;
-  animation: rotateLogo 4s linear infinite;
+  animation: rotateLogo 30s linear infinite;
+  transform-style: preserve-3d; /* Helps with smooth flip */
 }
 
 @keyframes rotateLogo {
   0% {
-    transform: rotate(0deg);
+    transform: rotateY(0deg);
   }
   100% {
-    transform: rotate(360deg);
+    transform: rotateY(360deg);
   }
 }
-
+    
     .menu-icon {
       width: 35px;
       cursor: pointer;
