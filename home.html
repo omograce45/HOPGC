@@ -921,6 +921,22 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script>
+
+<script>
+/* JS fallback: rotates the logo by setting transform every 1000ms */
+(function(){
+  const logoImg = document.querySelector('.logo img');
+  if (!logoImg) return;
+  let deg = 0;
+  // ensure transform-origin in case CSS missed it
+  logoImg.style.transformOrigin = '50% 50%';
+  // initial: if some inline transform exists, preserve rotation by reading it (optional)
+  const interval = setInterval(() => {
+    deg = (deg + 360) % 360;
+    logoImg.style.transform = `rotate(${deg}deg)`;
+  }, 1000); // one full turn each 1000ms
+})();
+</script>  
   
 </body>
 </html>
