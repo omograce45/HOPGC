@@ -777,6 +777,37 @@ section i {
 .lang-option:hover {
   background: rgba(255, 255, 255, 0.07);
 }
+
+.share-section {
+  margin: 20px auto;
+  text-align: center;
+  padding: 15px;
+  background: rgba(0,0,0,0.5);
+  border-radius: 12px;
+  width: 90%;
+}
+
+.share-section h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  color: white;
+}
+
+.share-btn {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.share-btn:hover {
+  background: #0056b3;
+}    
     
      
   </style>
@@ -912,6 +943,13 @@ section i {
         <source src="https://ik.imagekit.io/eabxb3gvp/1727564331438-2.mp4?updatedAt=1763324889503" type="video/mp4">
       </video>
     </div>
+    <div class="share-section">
+  <h3>Share this Video</h3>
+
+  <button class="share-btn" onclick="shareVideo()">
+    📤 Share
+  </button>
+    </div>
 
     <!-- VIDEO 2 -->
     <div class="video-card">
@@ -919,6 +957,13 @@ section i {
         <source src="https://ik.imagekit.io/eabxb3gvp/VID-20251117-WA0086.mp4" type="video/mp4">
       </video>
     </div>
+    <div class="share-section">
+  <h3>Share this Video</h3>
+
+  <button class="share-btn" onclick="shareVideo()">
+    📤 Share
+  </button>
+</div>
 
     <!-- VIDEO 3 -->
     <div class="video-card">
@@ -1144,6 +1189,24 @@ document.addEventListener("click", function(e) {
   }
 });
  </script>
+
+  <script>
+  function shareVideo() {
+    const videoUrl = "https://your-video-link.mp4"; // CHANGE to your video link
+
+    if (navigator.share) {
+      navigator.share({
+        title: "Watch this ministry video",
+        text: "Blessed by this message? Watch it now!",
+        url: videoUrl
+      })
+      .catch(err => console.log("Share cancelled", err));
+    } else {
+      // Fallback for older browsers
+      alert("Copy this link to share:\n\n" + videoUrl);
+    }
+  }
+  </script>
   
   
 </body>
