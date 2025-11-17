@@ -778,32 +778,39 @@ section i {
   background: rgba(255, 255, 255, 0.07);
 }
 
-.video-section {
-  padding: 20px;
+.video-slider-container {
+  width: 100%;
+  overflow: hidden;
+  background: #ffffff;
+  padding: 20px 0;
+}
+
+.video-slider {
   display: flex;
-  flex-direction: column;
-  gap: 25px;
+  gap: 20px;
+  transition: transform 0.5s ease-in-out;
 }
 
 .video-card {
-  background: #111;
+  min-width: 100%;     /* FULL WIDTH */
+  max-width: 100%;     /* Prevent shrinking */
+  background: #fff;
   padding: 15px;
   border-radius: 14px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-.video-title {
-  color: #fff;
+.video-card h3 {
   font-size: 18px;
   margin-bottom: 10px;
-  font-weight: 600;
 }
 
 video {
   width: 100%;
+  height: 220px;        /* You can increase this */
   border-radius: 10px;
   margin-bottom: 12px;
-  background: #000;
+  object-fit: cover;
 }
 
 .video-actions {
@@ -811,20 +818,16 @@ video {
   justify-content: space-between;
 }
 
-.action-btn {
-  background: #222;
-  color: #fff;
-  padding: 8px 16px;
-  border-radius: 10px;
-  font-size: 14px;
+.video-actions button,
+.video-actions a {
+  background: #007bff;
+  color: white;
+  padding: 7px 14px;
   text-decoration: none;
+  border-radius: 8px;
+  font-size: 14px;
   border: none;
-  cursor: pointer;
-}
-
-.action-btn:hover {
-  background: #333;
-}
+                             }
     
      
   </style>
@@ -978,26 +981,50 @@ video {
   </div>
     </section>
     
+<div class="video-slider-container">
 
-    <div class="video-section">
+  <div class="video-slider" id="videoSlider">
 
-  <div class="video-card">
-    <h3 class="video-title">Ministry Message 1</h3>
-
-    <video controls>
-      <source src="https://ik.imagekit.io/eabxb3gvp/1727564331438-2.mp4?updatedAt=1763324889503" type="video/mp4">
-    </video>
-
-    <div class="video-actions">
-      <button class="action-btn" onclick="shareVideo('https://ik.imagekit.io/eabxb3gvp/1727564331438-2.mp4?updatedAt=1763324889503')">📤 Share</button>
-
-      <a class="action-btn" href="https://ik.imagekit.io/eabxb3gvp/1727564331438-2.mp4?updatedAt=1763324889503" download>
-        ⬇ Download
-      </a>
+    <!-- VIDEO 1 -->
+    <div class="video-card">
+      <h3>Ministry Message 1</h3>
+      <video controls>
+        <source src="https://ik.imagekit.io/eabxb3gvp/1727564331438-2.mp4?updatedAt=1763324889503">
+      </video>
+      <div class="video-actions">
+        <button onclick="shareVideo('https://ik.imagekit.io/eabxb3gvp/1727564331438-2.mp4?updatedAt=1763324889503')">📤 Share</button>
+        <a href="https://ik.imagekit.io/eabxb3gvp/1727564331438-2.mp4?updatedAt=1763324889503" download>⬇ Download</a>
+      </div>
     </div>
+
+    <!-- VIDEO 2 -->
+    <div class="video-card">
+      <h3>Ministry Message 2</h3>
+      <video controls>
+        <source src="https://ik.imagekit.io/eabxb3gvp/sample1.mp4">
+      </video>
+      <div class="video-actions">
+        <button onclick="shareVideo('https://ik.imagekit.io/eabxb3gvp/sample1.mp4')">📤 Share</button>
+        <a href="https://ik.imagekit.io/eabxb3gvp/sample1.mp4" download>⬇ Download</a>
+      </div>
+    </div>
+
+    <!-- VIDEO 3 -->
+    <div class="video-card">
+      <h3>Ministry Message 3</h3>
+      <video controls>
+        <source src="https://ik.imagekit.io/eabxb3gvp/sample2.mp4">
+      </video>
+      <div class="video-actions">
+        <button onclick="shareVideo('https://ik.imagekit.io/eabxb3gvp/sample2.mp4')">📤 Share</button>
+        <a href="https://ik.imagekit.io/eabxb3gvp/sample2.mp4" download>⬇ Download</a>
+      </div>
+    </div>
+
   </div>
 
-    </div>
+</div>
+    
     
     <!-- Add this directly under the existing support cards grid -->
 <section class="vision-section">
@@ -1214,7 +1241,18 @@ document.addEventListener("click", function(e) {
 });
  </script>
 
-  <script>
+ <script>
+// Auto Slider
+let sliderIndex = 0;
+function autoSlide() {
+  const slider = document.getElementById("videoSlider");
+  const cards = document.querySelectorAll(".video-card");
+  sliderIndex = (sliderIndex + 1) % cards.length;
+  slider.style.transform = `translateX(-${sliderIndex * 100}%)`;
+}
+setInterval(autoSlide, 4000); // Slide every 4 seconds
+
+// Share Function
 function shareVideo(url) {
   if (navigator.share) {
     navigator.share({
@@ -1222,10 +1260,10 @@ function shareVideo(url) {
       url: url
     });
   } else {
-    alert("Sharing not supported on this device.");
+    alert("Sharing is not supported on this device.");
   }
 }
-  </script>
+ </script> 
   
   
 </body>
