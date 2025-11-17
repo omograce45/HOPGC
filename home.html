@@ -787,20 +787,23 @@ section i {
       <img src="https://ik.imagekit.io/eabxb3gvp/Church%20Logo%20transparent.png?updatedAt=1763034506236" alt="HOPGC Logo">
     </div>
 
-    <div class="language-selector">
-  <select id="languageSelect">
-    <option value="en">English</option>
-    <option value="fr">French</option>
-    <option value="es">Spanish</option>
-    <option value="pt">Portuguese</option>
-    <option value="ar">Arabic</option>
-    <option value="zh">Chinese</option>
-    <option value="hi">Hindi</option>
-    <option value="yo">Yoruba</option>
-    <option value="ig">Igbo</option>
-    <option value="ha">Hausa</option>
-  </select>
-    </div>
+    <div class="lang-container">
+  <button class="lang-btn" onclick="toggleLangMenu()">
+    Language ▾
+  </button>
+
+  <div id="lang-menu" class="lang-menu">
+    <div class="lang-option">English</div>
+    <div class="lang-option">Igbo</div>
+    <div class="lang-option">Yoruba</div>
+    <div class="lang-option">Hausa</div>
+    <div class="lang-option">French</div>
+    <div class="lang-option">Spanish</div>
+    <div class="lang-option">Swahili</div>
+  </div>
+</div>
+
+    
     <div class="menu-icon" id="menu-icon">
       <div></div>
       <div></div>
