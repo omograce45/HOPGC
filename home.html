@@ -778,7 +778,53 @@ section i {
   background: rgba(255, 255, 255, 0.07);
 }
 
+.video-section {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
 
+.video-card {
+  background: #111;
+  padding: 15px;
+  border-radius: 14px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.video-title {
+  color: #fff;
+  font-size: 18px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+video {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  background: #000;
+}
+
+.video-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.action-btn {
+  background: #222;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-size: 14px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+}
+
+.action-btn:hover {
+  background: #333;
+}
     
      
   </style>
@@ -931,6 +977,27 @@ section i {
 
   </div>
     </section>
+    
+
+    <div class="video-section">
+
+  <div class="video-card">
+    <h3 class="video-title">Ministry Message 1</h3>
+
+    <video controls>
+      <source src="https://ik.imagekit.io/eabxb3gvp/1727564331438-2.mp4?updatedAt=1763324889503" type="video/mp4">
+    </video>
+
+    <div class="video-actions">
+      <button class="action-btn" onclick="shareVideo('https://ik.imagekit.io/eabxb3gvp/1727564331438-2.mp4?updatedAt=1763324889503')">📤 Share</button>
+
+      <a class="action-btn" href="https://ik.imagekit.io/eabxb3gvp/1727564331438-2.mp4?updatedAt=1763324889503" download>
+        ⬇ Download
+      </a>
+    </div>
+  </div>
+
+    </div>
     
     <!-- Add this directly under the existing support cards grid -->
 <section class="vision-section">
@@ -1146,6 +1213,19 @@ document.addEventListener("click", function(e) {
   }
 });
  </script>
+
+  <script>
+function shareVideo(url) {
+  if (navigator.share) {
+    navigator.share({
+      title: "Watch this Ministry Video",
+      url: url
+    });
+  } else {
+    alert("Sharing not supported on this device.");
+  }
+}
+  </script>
   
   
 </body>
