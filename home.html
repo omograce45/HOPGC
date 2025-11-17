@@ -732,6 +732,35 @@ section i {
   margin-top: 10px;
   font-weight: bold;
 }
+
+/* Center it in header */
+#google_translate_element {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Make Google dropdown small & modern */
+.small-google select {
+  padding: 3px 6px !important;
+  font-size: 11px !important;
+  border-radius: 6px !important;
+  border: none !important;
+  background: #fff !important;
+  color: #000 !important;
+  font-weight: 600 !important;
+  outline: none !important;
+  height: 28px !important;
+}
+
+/* Remove Google long big bar */
+.goog-te-gadget {
+  font-size: 0 !important;
+}
+
+.goog-te-combo {
+  font-size: 12px !important;
+  }    
     
      
   </style>
@@ -741,6 +770,8 @@ section i {
     <div class="logo">
       <img src="https://ik.imagekit.io/eabxb3gvp/Church%20Logo%20transparent.png?updatedAt=1763034506236" alt="HOPGC Logo">
     </div>
+
+    <div id="google_translate_element" class="small-google"></div>
     <div class="menu-icon" id="menu-icon">
       <div></div>
       <div></div>
@@ -1065,6 +1096,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   setInterval(autoSlide, 30000); // Slide every 4 seconds
 </script>
+
+  <script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      includedLanguages: 'af,ar,az,be,bg,bn,bs,ca,ceb,cs,cy,da,de,el,eo,es,et,eu,fa,fi,fil,fr,fy,ga,gd,gl,gu,ha,haw,he,hi,hmn,hr,ht,hu,hy,id,ig,is,it,ja,jw,ka,kk,km,kn,ko,ku,ky,la,lb,lo,lt,lv,mg,mi,mk,ml,mn,mr,ms,mt,my,ne,nl,no,ny,pa,pl,ps,pt,ro,ru,rw,si,sk,sl,sm,sn,so,sq,sr,st,su,sv,sw,ta,te,tg,th,tk,tl,tr,tt,ug,uk,ur,uz,vi,xh,yi,yo,zh-CN,zh-TW,zu',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
+  }
+</script>
+
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   
   
   
