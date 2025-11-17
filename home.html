@@ -733,45 +733,50 @@ section i {
   font-weight: bold;
 }
 
-/* Make Google Translate dropdown minimal and small */
-#google_translate_element select {
-  background: rgba(0,0,0,0.6);
+/* Container centered in the header */
+.lang-container {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Button transparent and rounded */
+.lang-btn {
+  background: rgba(255, 255, 255, 0.1);
   color: white;
   border: 1px solid rgba(255,255,255,0.3);
-  padding: 6px 12px;
-  font-size: 12px;
+  padding: 6px 14px;
   border-radius: 20px;
-  backdrop-filter: blur(4px);
+  font-size: 14px;
+  backdrop-filter: blur(6px);
   cursor: pointer;
 }
 
-/* Dropdown text */
-.goog-te-menu-value span {
-  color: white !important;
+/* Dark dropdown like your menu */
+.lang-menu {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background: black;
+  width: 160px;
+  border-radius: 12px;
+  display: none;
+  flex-direction: column;
+  padding: 10px 0;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.6);
 }
 
-/* Remove ugly Google borders */
-.goog-te-gadget {
-  color: transparent !important;
+/* Options inside */
+.lang-option {
+  padding: 10px 15px;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
 }
 
-.goog-te-gadget img {
-  display: none !important;
+.lang-option:hover {
+  background: rgba(255, 255, 255, 0.07);
 }
-
-/* Dark dropdown */
-.goog-te-menu-frame {
-  box-shadow: none !important;
-}
-
-.goog-te-menu2 {
-  background: black !important;
-  color: white !important;
-}
-
-.goog-te-menu2 * {
-  color: white !important;
-    }
     
      
   </style>
@@ -782,7 +787,21 @@ section i {
       <img src="https://ik.imagekit.io/eabxb3gvp/Church%20Logo%20transparent.png?updatedAt=1763034506236" alt="HOPGC Logo">
     </div>
 
-    <div id="google_translate_element"></div>
+    <div class="lang-container">
+  <button class="lang-btn" onclick="toggleLangMenu()">
+    Language ▾
+  </button>
+
+  <div id="lang-menu" class="lang-menu">
+    <div class="lang-option">English</div>
+    <div class="lang-option">Igbo</div>
+    <div class="lang-option">Yoruba</div>
+    <div class="lang-option">Hausa</div>
+    <div class="lang-option">French</div>
+    <div class="lang-option">Spanish</div>
+    <div class="lang-option">Swahili</div>
+  </div>
+    </div>
 
     
     <div class="menu-icon" id="menu-icon">
@@ -1110,21 +1129,21 @@ document.addEventListener("DOMContentLoaded", () => {
   setInterval(autoSlide, 30000); // Slide every 4 seconds
 </script>
 
- <script type="text/javascript">
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement(
-    {
-      pageLanguage: 'en',
-      includedLanguages: 'en,ig,yo,ha,fr,es,sw',
-      layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
-    },
-    'google_translate_element'
-  );
+ <script>
+function toggleLangMenu() {
+  const menu = document.getElementById("lang-menu");
+  menu.style.display = menu.style.display === "flex" ? "none" : "flex";
 }
-</script>
 
-<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-  
+document.addEventListener("click", function(e) {
+  const menu = document.getElementById("lang-menu");
+  const btn = document.querySelector(".lang-btn");
+
+  if (!btn.contains(e.target) && !menu.contains(e.target)) {
+    menu.style.display = "none";
+  }
+});
+ </script>
   
   
 </body>
