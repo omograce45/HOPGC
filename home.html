@@ -1323,7 +1323,24 @@ function shareVideo(url) {
     alert("Sharing is not supported on this device.");
   }
 }
- </script> 
+ </script>
+
+  <script>
+// Smooth fade-in animation for all footer sections
+document.addEventListener("DOMContentLoaded", () => {
+    const sections = document.querySelectorAll(".footer-section, .footer-logo, .social-links");
+
+    sections.forEach((sec, i) => {
+        sec.style.opacity = "0";
+        sec.style.transform = "translateY(25px)";
+        setTimeout(() => {
+            sec.style.transition = "0.8s ease";
+            sec.style.opacity = "1";
+            sec.style.transform = "translateY(0)";
+        }, 150 * i);
+    });
+});
+  </script>
   
   
 </body>
