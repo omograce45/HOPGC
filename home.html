@@ -1017,6 +1017,28 @@ video {
   from { opacity: 1; }
   to { opacity: 0; visibility: hidden; }
 }
+
+
+  .trend-wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 10px 0;
+  gap: 10px;
+}
+
+.trend-line {
+  flex: 1;
+  height: 2px;
+  background: #0f8fda; /* You can change this color */
+}
+
+.trend-text {
+  white-space: nowrap;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f8fda; /* Match the line color */
+}  
     
   </style>
 </head>
@@ -1074,6 +1096,12 @@ video {
     <section class="cover-section">
   <img src="https://ik.imagekit.io/eabxb3gvp/images%20(8)_1.jpeg" alt="Cover Image">
 </section>
+
+    <div class="trend-wrapper">
+  <div class="trend-line"></div>
+  <span class="trend-text">Visit Pastor Nath Live Stream</span>
+  <div class="trend-line"></div>
+    </div>
 
    <div class="fade-slider">
   <div class="fade-slide active">
