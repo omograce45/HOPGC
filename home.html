@@ -1479,6 +1479,21 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 </script>
 <!-- End Improved Popup -->
+
+  <script>
+  function closePopup() {
+    const popup = document.getElementById("popup");
+    popup.style.opacity = "0";
+    popup.style.visibility = "hidden";
+  }
+
+  // Close when you tap anywhere EXCEPT the Continue button
+  document.addEventListener("click", function (e) {
+    if (!e.target.classList.contains("continue-btn")) {
+      closePopup();
+    }
+  });
+  </script>
   
   
 </body>
