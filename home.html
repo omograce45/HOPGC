@@ -1007,24 +1007,16 @@ video {
     to {transform: translateY(0); opacity: 1;}
   }
 
-  .continue-btn {
-  background: #4caf50;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 6px;
-  font-size: 16px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: 0.3s;
-}
-
-.continue-btn:hover {
-  background: #43a047;
-  transform: scale(1.05);
-}
   
+#popup {
+  animation: fadeOut 1s ease-in-out forwards;
+  animation-delay: 5s; /* popup disappears after 5 seconds */
+}
 
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; visibility: hidden; }
+}
     
   </style>
 </head>
