@@ -1040,6 +1040,44 @@ video {
   font-weight: 600;
   color: #0f8fda; /* Match the line color */
 }  
+
+.video-section {
+  position: relative;
+  width: 100%;
+  height: 70vh; /* adjust height */
+  overflow: hidden;
+}
+
+/* Video as background */
+.video-section video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* VERY IMPORTANT */
+  transform: translate(-50%, -50%);
+}
+
+/* Content on top of video */
+.video-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.35); /* optional dark overlay */
+}
+
+.video-content h1 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+    
     
   </style>
 </head>
@@ -1193,6 +1231,21 @@ video {
   </div>
 
 </div>
+
+<section class="video-section">
+  <video autoplay muted loop playsinline>
+    <source src="https://ik.imagekit.io/eabxb3gvp/1727564331438-2.mp4?updatedAt=1763324889503" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Optional content on top of the video -->
+  <div class="video-content">
+    <h1>Ministry Message</h1>
+    <p>Partner with us through prayers, volunteering, and giving.</p>
+  </div>
+</section>
+
+    
     
     <!-- Add this directly under the existing support cards grid -->
 <section class="vision-section">
